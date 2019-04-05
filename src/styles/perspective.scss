@@ -1,0 +1,91 @@
+.perspective {
+
+      *{
+          transition: all 1s ease;
+      }
+
+        .tagName {
+            position: absolute;
+            left: -50px;
+            top: -70px;
+            display: inline-block;
+            color: $blue;
+        }
+
+        .arrow{
+          display: inline-block;
+        }
+
+        .base__title {
+            transform: perspective(2000px) rotateX(0) rotateY(50deg) rotateZ(0) translateZ(0);
+            transform-origin: left;
+        }
+
+        a {
+            transform: perspective(2000px);
+
+            &:after {
+                transform: translate3d(-80px, 0, -60px);
+                height: 50px;
+            }
+        }
+
+        .base__seeMore {
+            transform: perspective(2000px) rotateX(0) rotateY(50deg) rotateZ(0);
+        }
+
+        .project {
+            box-shadow: 11px 8px 20px 0 rgba(0,0,0,0.24);
+            transform-origin: left;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(0) rotateY(35deg) rotateZ(0) translateZ(0);
+
+            .project__container {
+                z-index: 1;
+                transform: translateZ(80px);
+            }
+            .project__icons,
+            .project__labelContainer {
+                opacity: 1;
+            }
+
+            &:before {
+                transform: translate3d(10px, 0, -60px);
+            }
+
+            &__icons {
+                transform: rotateX(0) rotateY(35deg) rotateZ(0) translateZ(0);
+            }
+
+        }
+
+        .projectDetail__container {
+            perspective: 2000px;
+            transform: perspective(2000px),
+               rotateX(0deg),
+               rotateY(35deg),
+               rotateZ(0deg),
+               translateX(0px);
+
+            .slider {
+                transform: translateZ(325px);
+            }
+
+            .projectDetail__text {
+                transform: translateZ(20px);
+            }
+        }
+
+        .interest {
+            transform-origin: left;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(0) rotateY(35deg) rotateZ(0) translateZ(0);
+            opacity: 1;
+
+            svg{
+              opacity: 1;
+              transform: translateZ(80px);
+            }
+        }
+
+    }

@@ -1,0 +1,45 @@
+$fiveBoroughs: 'five_boroughs_handwritingRg', sans-serif;
+$louisGeorgeRegular: 'louis_george_cafregular', sans-serif;
+$louisGeorgeBold: 'louis_george_cafebold', sans-serif; //colors
+$white: #ffffff;
+$lightBlack: #252525;
+$darkBlack: #202020;
+$blue: #4758fc;
+
+$minVw: 320;
+$maxVW: 1440;
+$min-mobile-width: 0px;
+$max-mobile-width: 512px;
+$min-tablet-width: 513px;
+$max-tablet-width: 768px;
+$min-laptop-width: 769px;
+$max-laptop-width: 1023px;
+$min-desktop-width: 1024px;
+$max-desktop-width: 1280px; 
+
+@mixin mobile {
+  @media (min-width: #{$min-mobile-width}) and (max-width: #{$max-mobile-width}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: #{$min-mobile-width}) and (max-width: #{$max-tablet-width}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: #{$min-mobile-width}) and (max-width: #{$max-laptop-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$min-desktop-width}) and (max-width: #{$max-desktop-width}) {
+    @content;
+  }
+}
+
+@mixin typography($minVal, $maxVal, $minVw, $maxVw) {
+  font-size: calc(#{$minVal}px + #{($maxVal - $minVal)} * ((100vw - #{$minVw}px) / #{($maxVw - $minVw)}));
+}
