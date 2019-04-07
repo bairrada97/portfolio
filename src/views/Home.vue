@@ -15,7 +15,7 @@
           <div class="iconContainer" v-if="rangeSliderValue > maxValue/5 * 3">
             <a v-for="icon in socialIcons" class="icon" href="" :key="icon.name" >
               <span class="iconName">{{icon.name}}</span>
-              <img class="iconImage" :src="icon.icon" > 
+              <img class="iconImage" :src="icon.icon" >
             </a>
           </div>
         </transition>
@@ -30,7 +30,7 @@
 
 <script>
 // @ is an alias to /src
-/* eslint-disable */ 
+/* eslint-disable */
 import Intro from '@/components/Intro.vue';
 import DrawCanvasImage from '@/components/DrawCanvasImage.vue';
 
@@ -49,15 +49,6 @@ export default {
       name: 'João Bairrada',
       jobTitle: 'Front-End Developer',
     };
-  },
-  methods: {
-    clipPathImage(e) {
-      const { target } = e;
-      const illustrationImage = document.querySelector('.back');
-      const x = e.pageX - illustrationImage.getBoundingClientRect().x;
-      const y = e.pageY - illustrationImage.getBoundingClientRect().y;
-      illustrationImage.style.clipPath = `circle(120px at ${x}px ${y}px)`;
-    },
   },
   computed: {
     rangeSliderValue() {
@@ -103,12 +94,12 @@ export default {
                   opacity: 1;
                   transform-origin: center;
                   transform: translateX(-50%) rotate(10deg);
-                  
-                  
-         
+
+
+
                 }
             }
-           
+
             .iconImage{
               width: 25px;
               position: absolute;
@@ -116,11 +107,11 @@ export default {
               left: 50%;
               transform: translate(-50%, -50%);
 
-                 
+
             }
 
             .iconName{
-           
+
               font-family: $fiveBoroughs;
               color: $blue;
               position: absolute;
@@ -131,11 +122,11 @@ export default {
               letter-spacing: 3px;
               opacity: 0;
               transition: all 0.3s ease;
-              
 
-              
+
+
             }
-          
+
         }
         .photoContainer{
          display: flex;
@@ -144,21 +135,25 @@ export default {
           align-items: flex-end;
           margin: 0 auto;
 
-          
-      
+
+
         @include tablet{
             flex: 0 100%;
             margin: 0 auto;
-            
+
           }
 
           @include mobile{
             flex: 0 100%;
           }
+
+          @include laptopHeight{
+            flex: 0 56%;
+          }
         }
 
         &__titleContainer{
-          
+
           display: inline-flex;
           flex: 0 1 5%;
           flex-direction: column;

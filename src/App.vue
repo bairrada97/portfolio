@@ -4,7 +4,7 @@
         <TransitionRouter v-if="transition" />
       </transition>
       <transition name="intro" mode="in-out">
-        <BaseHeader v-if="rangeSliderValue > maxValue/10"/>
+        <BaseHeader v-if="rangeSliderValue > maxValue/10 || rangeSliderValue == null"/>
       </transition>
       <div class="wrapper">
         <BtnChangePerspective @click.native="updateChangePerspective" :text="text"/>
@@ -18,9 +18,9 @@
 
 
 <script>
-/* eslint-disable */ 
+/* eslint-disable */
 import BaseHeader from '@/components/BaseHeader.vue';
-import PhotoModal from '@/components/PhotoModal.vue'; 
+import PhotoModal from '@/components/PhotoModal.vue';
 import TransitionRouter from '@/components/TransitionRouter.vue';
 import BtnChangePerspective from '@/components/BtnChangePerspective.vue';
 import router from './router';
@@ -29,15 +29,18 @@ import store from './store';
 router.beforeEach((to, from, next) => {
   store.commit('updateChangePerspective', false);
   store.commit('updateTransition', true);
-  setTimeout(() => {
-    next();
-  }, 1800);
+  setTimeout(function(){
+  next();
+  }, 1000);
+
 });
 router.afterEach(() => {
   document.querySelector('#app').style.overflow = 'auto';
   store.commit('isMobile', false);
-  store.commit('updateTransition', false);
-  
+  setTimeout(function(){
+    store.commit('updateTransition', false);
+}, 800);
+
 });
 
 export default {
@@ -57,7 +60,7 @@ export default {
   methods: {
     updateChangePerspective() {
       this.$store.commit('updateChangePerspective', !this.changePerspective);
-      
+
     },
   },
   created() {
@@ -81,7 +84,6 @@ export default {
 
 };
 </script>
-
     <style lang="scss">
     @import '@/styles/_variables.scss';
     @import '@/styles/perspective.scss';
@@ -98,8 +100,6 @@ export default {
         overflow: auto;
     }
 
-
-
     .wrapper {
         margin: 0 auto;
         max-width: 1440px;
@@ -109,31 +109,9 @@ export default {
         display: block;
     }
 
-    
-
     .page-enter-active {
         animation: transiton 1.8s ease;
     }
-    /*
-
-      .intro-enter-active {
-        transition: all 1s ease;
-      }
-      .intro-leave-active {
-        transition: all 0.5s ease;
-      }
-      .intro-enter{
-        transform: scale(20);
-        position: absolute;
-        top: 0;
-        width: 100%;
-        transition: all 2s ease;
-      }
-
-      */
-
-    
-    
 
 
     </style>

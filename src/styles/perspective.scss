@@ -16,10 +16,49 @@
           display: inline-block;
         }
 
-        .base__title {
+        .base__title{
             transform: perspective(2000px) rotateX(0) rotateY(50deg) rotateZ(0) translateZ(0);
             transform-origin: left;
         }
+
+        .home__titleContainer{
+          transform: perspective(2000px) rotateX(0) rotateY(50deg) rotateZ(0) translateZ(0);
+          transform-origin: left;
+
+          .base__title{
+            transform: unset;
+            transform-origin: unset;
+          }
+        }
+
+        .iconContainer{
+          .iconName{
+            opacity: 1;
+          }
+
+          .iconImage{
+          transform: rotateY(40deg) translate3d(-50%, -50%, 15px);
+          }
+        }
+
+        .photoContainer{
+          transform: perspective(2000px)  rotateY(50deg) ;
+
+          .drawCanvas{
+            padding-bottom: 0;
+
+            img{
+              display: block;
+              transform:   rotateY(25deg) translateZ(150px);
+            }
+
+            canvas{
+              pointer-events: none;
+            }
+          }
+        }
+
+
 
         a {
             transform: perspective(2000px);

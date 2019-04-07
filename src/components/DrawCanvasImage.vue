@@ -25,7 +25,7 @@ export default {
     var pointLifetime = 1000;
     var points = [];
 
-  
+
 
     if (image.complete) {
       start();
@@ -154,21 +154,21 @@ export default {
      */
     function drawImageCanvas() {
           let dpi = window.devicePixelRatio;
-        
-   
+
+
 
       imageCanvas.width = document.querySelector('.drawCanvas').offsetWidth;
       imageCanvas.height = document.querySelector('.drawCanvas').offsetHeight;
       // Emulate background-size: cover
       var width = imageCanvas.width;
       var height = imageCanvas.width / image.naturalWidth * image.naturalHeight;
-      
+
       if (height < imageCanvas.height) {
         width = imageCanvas.height / image.naturalHeight * image.naturalWidth;
         height = imageCanvas.height;
       }
 
-   
+
 
       imageCanvasContext.clearRect(0, 0, width  * dpi, height * dpi);
       imageCanvasContext.globalCompositeOperation = "source-over";
@@ -192,7 +192,7 @@ export default {
   position: relative;
   width: 100%;
   box-sizing: border-box;
-  
+
 
   @include tablet{
     padding-bottom: 72%;
@@ -201,8 +201,10 @@ export default {
   @include mobile{
     padding-bottom: 77%;
   }
+
   
- 
+
+
 
 
   .illustrationImage {

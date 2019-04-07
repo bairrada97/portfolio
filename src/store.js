@@ -9,7 +9,7 @@ export default new Vuex.Store({
   state: {
     projects: [
       {
-        id: 1,
+        id: 0,
         name: 'Dyslexia App',
         labels: ['Html', 'Sass', 'Jquery', 'PWA'],
         image: 'https://via.placeholder.com/150',
@@ -20,35 +20,17 @@ export default new Vuex.Store({
         liveCode: 'https://github.com/bairrada97/DyslexiaApp',
       },
       {
+        id: 1,
+        name: 'Quizz Game',
+        labels: ['Html', 'Sass', 'Jquery', 'PWA'],
+        image: 'https://via.placeholder.com/150',
+      },
+      {
         id: 2,
-        name: 'Quizz Game',
-        labels: ['Html', 'Sass', 'Jquery', 'PWA'],
-        image: 'https://via.placeholder.com/150',
-      },
-      {
-        id: 3,
         name: 'Dyslexia App',
         labels: ['Html', 'Sass', 'Jquery', 'PWA'],
         image: 'https://via.placeholder.com/150',
-      },
-      {
-        id: 4,
-        name: 'Quizz Game',
-        labels: ['Html', 'Sass', 'Jquery', 'PWA'],
-        image: '',
-      },
-      {
-        id: 5,
-        name: 'Dyslexia App',
-        labels: ['Html', 'Sass', 'Jquery', 'PWA'],
-        image: 'img/1.jpg',
-      },
-      {
-        id: 6,
-        name: 'Quizz Game',
-        labels: ['Html', 'Sass', 'Jquery', 'PWA'],
-        image: '',
-      },
+      }
     ],
     interests: [
       {
@@ -103,15 +85,14 @@ export default new Vuex.Store({
         name: "CV"
       }
     },
-    projectsToShow: 4,
-    interestsToShow: 4,
+    projectsToShow: 3,
+    interestsToShow: 3,
     transition: false,
     changePerspective: false,
     perspectiveText: '3D Mode',
     isMobile: false,
-    rangeSliderValue: 0,
+    rangeSliderValue: null,
     maxRangeSliderValue: 100,
-
   },
   getters: {
     showMoreProjects: state => state.projectsToShow + 4,
@@ -119,7 +100,7 @@ export default new Vuex.Store({
     showModal: (state) => {
       for (let i = 0; i < state.interests.length; i++) {
         if (state.interests[i].isSelected) return state.interests[i];
-        
+
       }
 
     },
@@ -129,7 +110,7 @@ export default new Vuex.Store({
     getRangeSliderValue: state => state.rangeSliderValue,
     isMobile: state =>state.isMobile
   },
-  mutations: { 
+  mutations: {
     updateProjectsToShow: (state, payload) => {
       state.projectsToShow = payload;
     },
@@ -162,6 +143,5 @@ export default new Vuex.Store({
     isMobile: (state, payload) =>{
       state.isMobile = payload;
     }
-  },
-  actions: {},
+  }
 });

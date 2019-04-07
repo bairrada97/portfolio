@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       maxValue: this.$store.state.maxRangeSliderValue,
-     
+
     };
   },
   methods: {
@@ -71,9 +71,9 @@ export default {
 .btnChangePerspective {
     position: absolute;
     bottom: 30px;
-    right: 0;
+    right: 5%;
     z-index: 5;
-    
+
     @include tablet{
       display: none;
     }
