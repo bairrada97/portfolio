@@ -20,6 +20,7 @@ Vue.directive('arrowUp', {
   },
 
 });
+
 new Vue({
   router,
   store,

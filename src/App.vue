@@ -4,7 +4,7 @@
         <TransitionRouter v-if="transition" />
       </transition>
       <transition name="intro" mode="in-out">
-        <BaseHeader v-if="rangeSliderValue > maxValue/10 || rangeSliderValue == null"/>
+        <BaseHeader v-if="rangeSliderValue > maxValue/10"/>
       </transition>
       <div class="wrapper">
         <BtnChangePerspective @click.native="updateChangePerspective" :text="text"/>

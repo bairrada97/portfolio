@@ -50,11 +50,12 @@ export default {
 
     &__container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 330px);
+        //grid-template-columns: repeat(auto-fill, 330px);
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         grid-column-gap: 40px;
         grid-row-gap: 40px;
 
-        @include laptop{
+        @include tablet{
           justify-content: center;
         }
     }

@@ -66,7 +66,6 @@ export default new Vuex.Store({
     ],
     myImage: '/../assets/images/me2.png',
     illustrationImage: '/../assets/images/illustrationImage.png',
-    aboutMe: '/../assets/images/bairrada.png',
     socialIcons: {
       github:{
         icon: '/../assets/images/Github.svg',
@@ -85,13 +84,47 @@ export default new Vuex.Store({
         name: "CV"
       }
     },
+    aboutMePhoto: '/../assets/images/bairrada2.png',
+    about: {
+      
+      language:{
+        id: 0,
+        image: '/../assets/images/language.png',
+        text: "EU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portugues"
+      },
+      mouse: {
+        id: 1,
+        image: '/../assets/images/rato.png',
+        text: "EU falo ingles e portuguesssss"
+      },
+      photo: {
+        id: 2,
+        image: '/../assets/images/photo.png',
+        text: "EU falo ingles e russo"
+      },
+      keyboard:{
+        id: 3,
+        image: '/../assets/images/teclado.png',
+        text: "EU falo ingles e sueco"
+      },
+      roots:{
+        id: 4,
+        image: '/../assets/images/raizes.png',
+        text: "EU falo ingles e baleies"
+      },
+      diploma: {
+        id: 5,
+        image: '/../assets/images/canudo.png',
+        text: "EU falo ingles e espanhol"
+      }
+    },
     projectsToShow: 3,
     interestsToShow: 3,
     transition: false,
     changePerspective: false,
     perspectiveText: '3D Mode',
     isMobile: false,
-    rangeSliderValue: null,
+    rangeSliderValue: 0,
     maxRangeSliderValue: 100,
   },
   getters: {
