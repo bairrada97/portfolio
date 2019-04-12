@@ -72,6 +72,9 @@ header {
       align-items: center;
       margin: 0 auto;
       max-width: 1440px;
+      animation: mobileText 0.5s ease;
+      animation-fill-mode: forwards;
+
 
       @include tablet{
         height: 70px;

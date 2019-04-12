@@ -192,6 +192,8 @@ export default {
   position: relative;
   width: 100%;
   box-sizing: border-box;
+  animation: mobileText 0.5s ease;
+  animation-fill-mode: forwards;
 
 
   @include tablet{

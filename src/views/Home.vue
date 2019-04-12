@@ -134,6 +134,8 @@ export default {
           justify-content: center;
           align-items: flex-end;
           margin: 0 auto;
+          animation: mobileText 0.5s ease;
+          animation-fill-mode: forwards;
 
 
 
@@ -162,6 +164,8 @@ export default {
             max-width: 400px;
             line-height: 80px;
             margin-bottom: 40px;
+            animation: mobileText 0.5s ease;
+            animation-fill-mode: forwards;
           }
         }
 
@@ -169,6 +173,8 @@ export default {
           text-align: left;
           font-size: 20px;
           color: $blue;
+          animation: mobileText 0.5s ease;
+          animation-fill-mode: forwards;
         }
 
     }

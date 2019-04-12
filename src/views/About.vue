@@ -46,7 +46,7 @@ export default {
         for(const element of text){
           element.style.display = 'none';
         }
-      e.currentTarget.previousElementSibling.style.display = 'block';
+      e.currentTarget.previousElementSibling.style.display = 'inline-block';
       e.currentTarget.nextSibling.style.display = 'block';
     },
   },
@@ -67,12 +67,15 @@ export default {
     }
 
     &__textContainer{
+      position: absolute;
+      top: 0;
+      left: 0;
       display: none;
       width: 35%;
-      height: 100%;
       padding: 50px 0;
       line-height: 1.5;
       text-align: left;
+      vertical-align: top;
     }
 
     &__image{
@@ -88,6 +91,7 @@ export default {
     &__imageContainer{
       width: 100%;
       height: 100%;
+      text-align: left;
       position: absolute;
       top: 0;
       left: 0;
@@ -151,7 +155,6 @@ export default {
       
       
       img {
-
         display: none;
         text-align: center;
         margin:  0 auto;
