@@ -1,7 +1,7 @@
 <!-- eslint-disable -->
 <template>
   <div class="input__container">
-    <p >Scroll To Build Website</p>
+    <p>{{scrollingText}}</p>
   </div>
 </template>
 
@@ -12,36 +12,32 @@ export default {
   data() {
     return {
       counter: 0,
-      isScrolling: false,
+      isScrolling: null,
+      scrollingText: "Scroll To Build Website"
     };
   },
-  created(){
-    window.addEventListener('wheel', this.throttle(this.handleScroll, 500));
+  mounted(){
+
+    window.addEventListener('wheel', this.mouseScroll);
   },
-   destroyed(){
-    window.removeEventListener('wheel', this.handleScroll);
+   beforeDestroy(){
+    window.removeEventListener('wheel',  this.mouseScroll, false);
+    
   },
   methods: {
+    mouseScroll(e){
+     this.throttle(e, this.handleScroll, 500);
+    },
     handleScroll(event) {
-       
-     if(event.deltaY < 0){
-        this.counter--;
-     }else{
-        this.counter++;
-      }
+      event.deltaY < 0 ? this.counter-- : this.counter++;
       this.$store.commit('updateRangeSliderValue', this.counter);
     },
-    throttle(func, limit) {
-      let inThrottle
-      return () => {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-          func.apply(context, args)
-          inThrottle = true
-          setTimeout(() => inThrottle = false, limit);
-        }
-      }
+    throttle(event, func, limit) {
+        if (!this.isScrolling) {
+          func(event);
+          this.isScrolling = true;
+          setTimeout(() => this.isScrolling = false, limit)
+        }  
     }
   },
 };
@@ -60,6 +56,11 @@ export default {
   bottom: 100px;
   width: 50%;
   animation: text 3s ease;
+  
+  p{
+    @include typography(20, 20, $minVw, $maxVW);
+    color: $blue;
+  }
 
     @include tablet{
         width: 90%;

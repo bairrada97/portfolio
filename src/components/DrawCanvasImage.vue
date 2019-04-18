@@ -16,6 +16,7 @@ export default {
       illustrationImage: this.$store.state.illustrationImage
     };
   },
+ 
   mounted() {
     var image = document.querySelector(".illustrationImage");
     var imageCanvas = document.createElement("canvas");
@@ -146,9 +147,11 @@ export default {
           let dpi = window.devicePixelRatio;
 
 
-
-      imageCanvas.width = document.querySelector('.drawCanvas').offsetWidth;
-      imageCanvas.height = document.querySelector('.drawCanvas').offsetHeight;
+      if(document.querySelector('.drawCanvas') != null){
+        imageCanvas.width = document.querySelector('.drawCanvas').offsetWidth;
+        imageCanvas.height = document.querySelector('.drawCanvas').offsetHeight;
+      }
+     
       // Emulate background-size: cover
       var width = imageCanvas.width;
       var height = imageCanvas.width / image.naturalWidth * image.naturalHeight;
