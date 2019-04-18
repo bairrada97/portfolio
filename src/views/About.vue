@@ -9,9 +9,7 @@
     <div class="about__imageContainer"
           v-for="description in about"
           :key="description.id">
-      <div class="about__textContainer">
-        <p class="about__text">{{description.text}}</p>
-      </div>
+      <p class="about__text">{{description.text}}</p>
       <span @mouseover="showImage"></span>
       <img :src="description.image" alt="">
     </div>
@@ -37,17 +35,24 @@ export default {
   methods: {
     showImage(e) {
       const image = document.querySelectorAll('.about__imageContainer img');
-      const text = document.querySelectorAll('.about__imageContainer .about__textContainer');
+      const text = document.querySelectorAll('.about__imageContainer .about__text');
+      const span = document.querySelectorAll('.about__imageContainer span');
 
         for(const element of image){
-          element.style.display = 'none';
+          element.style.opacity = '0';
         }
 
         for(const element of text){
-          element.style.display = 'none';
+          element.style.opacity = '0';
         }
-      e.currentTarget.previousElementSibling.style.display = 'inline-block';
-      e.currentTarget.nextSibling.style.display = 'block';
+
+        for(const element of span){
+          element.style.opacity ="1";
+        }
+      
+      e.currentTarget.style.opacity = "0";
+      e.currentTarget.previousElementSibling.style.opacity = '1';
+      e.currentTarget.nextSibling.style.opacity = '1';
     },
   },
 };
@@ -64,24 +69,31 @@ export default {
 
     &__container{
       position: relative;
+      font-family: $fiveBoroughs;
+      color: $blue;
+      transform: translateY(-15%);
+      max-width: 500px;
+      margin: 0 auto;
     }
 
-    &__textContainer{
+    &__text{
       position: absolute;
       top: 0;
       left: 0;
-      display: none;
-      width: 35%;
+      opacity: 0;
+      width: 100%;
       padding: 50px 0;
       line-height: 1.5;
       text-align: left;
       vertical-align: top;
+      max-width: 200px;
+      transition: all 0.3s ease;
     }
 
     &__image{
-      width: 500px;
+      width: 100%;
       height: auto;
-      transform: translateY(-15%);
+      
 
       @include laptopHeight{
             width: 370px;
@@ -96,72 +108,111 @@ export default {
       top: 0;
       left: 0;
       display: block;
-
+      transition: all 0.3s ease;
 
        &:nth-of-type(1){
          span{
-          top: 0;
-          left: 53%;
+            top: 20.5%;
+            left: 52%;
          }
+
+          p{
+            top: 5%;
+            left: 0;
+            transform: rotate(-25deg);
+          }
          
         }
 
          &:nth-of-type(2){
            span{
-            top: 40%;
-            left: 40%;
+            top: 56%;
+            left: 31%;
            }
+
+            p{
+            top: 36%;
+            left: -11%;
+            transform: rotate(-25deg);
+          }
           
         }
 
         &:nth-of-type(3){
            span{
-            top: 17%;
-            left: 51%;
+            top: 33%;
+            left: 56%;
            }
+
+            p{
+            top: 22%;
+            left: 74%;
+            transform: rotate(25deg);
+          }
           
         }
 
         &:nth-of-type(4){
            span{
-              top: 25%;
-              left: 40%;
+              top: 46%;
+              left: 30%;
            }
+           
+            p{
+            top: 26%;
+            left: -10%;
+            transform: rotate(-25deg);
+          }
           
         }
 
         &:nth-of-type(5){
            span{
-             top: 70%;
+             top: 86%;
              left: 53%;
            }
+
+            p{
+            top: 65%;
+            left: 70%;
+            transform: rotate(25deg);
+          }
           
         }
         
         &:nth-of-type(6){
            span{
-            
-             top: 40%;
-             left: 57%;
+             top: 57%;
+             left: 63%;
            }
+
+            p{
+             top: 43%;
+             left: 72%;
+            transform: rotate(25deg);
+          }
           
         }
 
+        &:nth-of-type(7){
+          span{
+            top: 15%;
+            left: 48.5%;
+          }
 
-
-     
-
-
-      
-      
+          p{
+            top: 5%;
+            left: 60%;
+            transform: rotate(25deg);
+          }
+        }
+  
       img {
-        display: none;
+        opacity: 0;
         text-align: center;
         margin:  0 auto;
         height: 100%;
-        transform: translateY(-15%);
-        transition: all 1s ease;
-
+        transition: all 0.3s ease;
     }
 
 
@@ -174,7 +225,7 @@ export default {
         background: $blue;
         cursor: pointer;
         z-index: 9;
-        transition: all 1s ease;
+        
       }
 
 

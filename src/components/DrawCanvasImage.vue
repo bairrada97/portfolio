@@ -137,17 +137,7 @@ export default {
       return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
     }
 
-    function fix_dpi() {
-          //get CSS height
-          //the + prefix casts it to an integer
-          //the slice method gets rid of "px"
-          let style_height = +getComputedStyle(imageCanvas).getPropertyValue("height").slice(0, -2);
-          //get CSS width
-          let style_width = +getComputedStyle(imageCanvas).getPropertyValue("width").slice(0, -2);
-          //scale the canvas
-          imageCanvas.setAttribute('height', style_height);
-          imageCanvas.setAttribute('width', style_width * dpi);
-        }
+   
 
     /**
      * Draws the original image, masked by the line drawn in drawLineToCanvas.
@@ -170,9 +160,9 @@ export default {
 
 
 
-      imageCanvasContext.clearRect(0, 0, width  * dpi, height * dpi);
+      imageCanvasContext.clearRect(0, 0, width, height);
       imageCanvasContext.globalCompositeOperation = "source-over";
-      imageCanvasContext.drawImage(image, 0, 0, width * dpi, height * dpi);
+      imageCanvasContext.drawImage(image, 0, 0, width, height);
       imageCanvasContext.globalCompositeOperation = "destination-in";
       imageCanvasContext.drawImage(lineCanvas, 0, 0);
     }

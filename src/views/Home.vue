@@ -6,13 +6,13 @@
       </transition>
       <div class="home__titleContainer">
         <transition name="intro" mode="in-out">
-          <h1 class="base__title" v-if="rangeSliderValue > maxValue/5" v-arrowUp>{{name}}</h1>
+          <h1 class="base__title" v-if="rangeSliderValue >= maxValue - 3" v-arrowUp>{{name}}</h1>
         </transition>
         <transition name="intro" mode="in-out">
-          <h2 class="home__subTitle" v-if="rangeSliderValue > maxValue/5 * 3">{{jobTitle}}</h2>
+          <h2 class="home__subTitle" v-if="rangeSliderValue >= maxValue - 2">{{jobTitle}}</h2>
         </transition>
         <transition name="intro" mode="in-out">
-          <div class="iconContainer" v-if="rangeSliderValue > maxValue/5 * 3">
+          <div class="iconContainer" v-if="rangeSliderValue >= maxValue - 1">
             <a v-for="icon in socialIcons" class="icon" href="" :key="icon.name" >
               <span class="iconName">{{icon.name}}</span>
               <img class="iconImage" :src="icon.icon" >
@@ -21,13 +21,12 @@
         </transition>
       </div>
     <transition name="intro" mode="in-out">
-      <div class="photoContainer"  v-if="rangeSliderValue > maxValue - 1 ">
+      <div class="photoContainer"  v-if="rangeSliderValue >= maxValue">
         <DrawCanvasImage></DrawCanvasImage>
       </div>
       </transition>
     </section>
     </template>
-
 <script>
 // @ is an alias to /src
 /* eslint-disable */
@@ -65,9 +64,16 @@ export default {
         display: flex;
         flex-wrap: wrap;
         flex-direction: unset;
+        overflow: hidden;
+
+        @include laptopHeight{
+          overflow: unset;
+        }
 
         .iconContainer{
           display: flex;
+          animation: mobileText 0.5s ease;
+          animation-fill-mode: forwards;
         }
 
         .icon{
@@ -80,6 +86,7 @@ export default {
             height: 50px;
             margin-top: 50px;
             margin-right: 20px;
+     
 
             &:after{
               content: none;
@@ -129,13 +136,15 @@ export default {
 
         }
         .photoContainer{
-         display: flex;
+
+          display: flex;
           flex: 0 63%;
           justify-content: center;
           align-items: flex-end;
           margin: 0 auto;
           animation: mobileText 0.5s ease;
           animation-fill-mode: forwards;
+          overflow: hidden;
 
 
 
@@ -149,9 +158,7 @@ export default {
             flex: 0 100%;
           }
 
-          @include laptopHeight{
-            flex: 0 56%;
-          }
+      
         }
 
         &__titleContainer{

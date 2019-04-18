@@ -2,21 +2,19 @@
 <div class="intro">
   <div class="intro__container">
     <transition name="fade">
-      <div class="intro__titleContainer" v-if="rangeSliderValue < maxValue/5">
+      <div class="intro__titleContainer" v-if="rangeSliderValue < maxValue/6">
         <h1 class="base__title" data-id="1">{{ msg }}</h1>
         <span></span>
       </div>
     </transition>
-
-
   </div>
-  <RangeSlider />
+  <RangeSlider v-if="timeToScroll"/>
 </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
+/* eslint-disable */
 import RangeSlider from '@/components/RangeSlider.vue';
 
 export default {
@@ -29,8 +27,10 @@ export default {
     return {
       msg: "I'm a Front-End Developer",
       maxValue: this.$store.state.maxRangeSliderValue,
+      timeToScroll: false
     };
   },
+  
   computed: {
     rangeSliderValue() {
       return this.$store.getters.getRangeSliderValue;
@@ -39,9 +39,10 @@ export default {
   mounted() {
     setTimeout(() => {
       this.msg = 'Welcome to my Portfolio';
+      this.timeToScroll = true;
     }, 5000);
-  },
-
+  }
+ 
 
 };
 </script>
@@ -70,6 +71,7 @@ export default {
 
     .intro__titleContainer {
         position: relative;
+        transition: all 0.5s ease;
     }
 
     .base__title {
@@ -93,7 +95,7 @@ export default {
 
     span {
         position: absolute;
-        bottom: 0;
+        bottom: -10%;
         left: 50%;
         transform: translateX(-50%);
         z-index: 2;

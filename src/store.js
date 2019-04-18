@@ -116,7 +116,13 @@ export default new Vuex.Store({
         id: 5,
         image: '/../assets/images/canudo.png',
         text: "EU falo ingles e espanhol"
+      },
+      brain : {
+        id: 6,
+        image: '/../assets/images/brain.png',
+        text: "zeze"
       }
+
     },
     projectsToShow: 3,
     interestsToShow: 3,
@@ -125,7 +131,7 @@ export default new Vuex.Store({
     perspectiveText: '3D Mode',
     isMobile: false,
     rangeSliderValue: 0,
-    maxRangeSliderValue: 100,
+    maxRangeSliderValue: 6,
   },
   getters: {
     showMoreProjects: state => state.projectsToShow + 4,

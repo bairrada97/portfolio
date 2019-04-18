@@ -10,6 +10,7 @@ section{
 
     @include tablet{
       height: 100vh;
+      overflow: unset;
     }
 }
 
