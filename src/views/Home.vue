@@ -47,13 +47,15 @@ export default {
       socialIcons: this.$store.state.socialIcons,
       name: 'João Bairrada',
       jobTitle: 'Front-End Developer',
+      intro: false
     };
   },
   computed: {
     rangeSliderValue() {
       return this.$store.getters.getRangeSliderValue;
     },
-  }
+  },
+ 
 
 };
 </script>
@@ -66,7 +68,7 @@ export default {
         flex-direction: unset;
         overflow: hidden;
 
-        @include laptopHeight{
+        @include tablet{
           overflow: unset;
         }
 
@@ -77,15 +79,15 @@ export default {
         }
 
         .icon{
-          display: inline-block;
+            display: inline-block;
             position: relative;
             text-decoration: none;
             background-color: $darkBlack;
             border-radius: 50%;
             width: 50px;
             height: 50px;
-            margin-top: 50px;
-            margin-right: 20px;
+            margin-top: $s-9;
+            margin-right: $s-6;
      
 
             &:after{
@@ -108,49 +110,40 @@ export default {
             }
 
             .iconImage{
-              width: 25px;
               position: absolute;
               top: 50%;
               left: 50%;
+              width: 25px;
               transform: translate(-50%, -50%);
-
-
             }
 
             .iconName{
-
-              font-family: $fiveBoroughs;
-              color: $blue;
               position: absolute;
               top: -15px;
               left: 50%;
+              font-family: $fiveBoroughs;
+              color: $blue;
               transform: translateX(-50%) rotate(0deg);
-              font-size: 16px;
+              font-size: $font-size3;
               letter-spacing: 3px;
               opacity: 0;
               transition: all 0.3s ease;
-
-
-
             }
 
         }
         .photoContainer{
-
           display: flex;
-          flex: 0 63%;
           justify-content: center;
           align-items: flex-end;
+          flex: 0 63%;
           margin: 0 auto;
           animation: mobileText 0.5s ease;
           animation-fill-mode: forwards;
           overflow: hidden;
 
-
-
         @include tablet{
             flex: 0 100%;
-            margin: 0 auto;
+            margin: $s-6 auto 0 auto;
 
           }
 
@@ -158,7 +151,6 @@ export default {
             flex: 0 100%;
           }
 
-      
         }
 
         &__titleContainer{
@@ -170,16 +162,19 @@ export default {
           .base__title{
             max-width: 400px;
             line-height: 80px;
-            margin-bottom: 40px;
             animation: mobileText 0.5s ease;
             animation-fill-mode: forwards;
+
+            @include tablet{
+              line-height: $s-10;
+            }
           }
         }
 
         &__subTitle{
-          text-align: left;
-          font-size: 20px;
+          font-size: $font-size5;
           color: $blue;
+          text-align: left;
           animation: mobileText 0.5s ease;
           animation-fill-mode: forwards;
         }

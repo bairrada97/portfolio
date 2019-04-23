@@ -4,7 +4,8 @@
         <TransitionRouter v-if="transition" />
       </transition>
       <transition name="intro" mode="in-out">
-        <BaseHeader v-if="rangeSliderValue >= maxValue - 4"/>
+          <BaseHeader  v-if="(isIntroVisible && rangeSliderValue >= maxValue - 4)
+                      || !isIntroVisible "/>
       </transition>
       <div class="wrapper">
         <!--<BtnChangePerspective @click.native="updateChangePerspective" :text="text"/>-->
@@ -33,8 +34,16 @@ router.beforeEach((to, from, next) => {
   next();
   }, 1000);
 
+console.log(to, from)
+if(to.name == "CC"){
+  store.commit('isIntroVisible', true);
+}else{
+ store.commit('isIntroVisible', false);
+}
+  
+
 });
-router.afterEach(() => {
+router.afterEach((to, from) => {
   document.querySelector('#app').style.overflow = 'auto';
   store.commit('isMobile', false);
   setTimeout(function(){
@@ -54,7 +63,8 @@ export default {
   data() {
     return {
       maxValue: this.$store.state.maxRangeSliderValue,
-      text: "3D Mode"
+      text: "3D Mode",
+      intro: false
     };
   },
   methods: {
@@ -66,6 +76,7 @@ export default {
   created() {
     this.$store.commit('updateTransition', false);
   },
+ 
   computed: {
     makeModalVisible() {
       return this.$store.getters.showModal;
@@ -79,6 +90,12 @@ export default {
     rangeSliderValue() {
       return this.$store.getters.getRangeSliderValue;
     },
+    isIntroVisible(){
+      return this.$store.getters.isIntroVisible;
+    },
+    isHome(){
+      return window.location.pathname != "/"
+    }
 
   },
 

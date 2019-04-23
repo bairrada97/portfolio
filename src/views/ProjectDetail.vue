@@ -45,8 +45,9 @@ export default {
 
     &__container {
         background: linear-gradient(to bottom, #252525 20%, #202020 14%, #202020 95%);
-        padding: 70px 5%;
+        padding: 0 5% $s-10 5%;
         text-align: left;
+        margin-bottom: $m-6;
     }
 
     &__infoContainer{
@@ -57,15 +58,11 @@ export default {
       }
     }
 
-    &__textTitle {
-        color: $blue;
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-
     &__text {
-        font-size: 16px;
-        margin-top: 100px;
+        font-size: $font-size3;
+        margin-top: 164px;
+        margin-right: $m-1;
+        margin-bottom: $m-2;
         max-width: 700px;
         line-height: 1.5;
         display: inline-block;
@@ -74,14 +71,21 @@ export default {
 
         @include tablet{
           display: block;
-        width: 100%;
-        margin-top: 0;
-        margin-bottom: 40px; 
+          width: 100%;
+          margin-top: 0;
+          margin-bottom: $m-3;
         }
+
+       
     }
 
     .margin {
-        margin-right: 50px;
+        margin-right: $m-4;
+
+         @include tablet{
+            margin-left: 5%;
+          
+        }
     }
 }
 </style>

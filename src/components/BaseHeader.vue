@@ -83,7 +83,7 @@ header {
 
     .logo {
         font-family: $louisGeorgeBold;
-        font-size: 20px;
+        font-size: $font-size5;
         margin-right: auto;
         letter-spacing: 3.2px;
 
@@ -105,7 +105,7 @@ header {
         height: 100px;
         justify-content: space-around;
         font-family: $louisGeorgeBold;
-        font-size: 16px;
+        font-size: $font-size3;
         letter-spacing: 3.2px;
 
       @include tablet{
@@ -115,7 +115,7 @@ header {
     }
 
     .item {
-        margin-right: 80px;
+        margin-right: $m-5;
 
         &:last-of-type{
           margin-right: 0;
@@ -127,10 +127,10 @@ header {
                 position: absolute;
                 bottom: -15px;
                 left: 50%;
+                background-color: $blue;
                 transform: translateX(-50%);
                 width: calc(100% + 30px);
                 height: 50px;
-                background-color: $blue;
                 z-index: -1;
             }
 
@@ -142,18 +142,17 @@ header {
         display: none;
         width: 35px;
         height: 10px;
-        cursor: pointer;
         z-index: 2;
+        cursor: pointer;
 
 
         span{
           display: block;
           position: absolute;
+          background: $blue;
           width: 35px;
           height: 2px;
-          background: $blue;
           border-radius: 20px;
-
           transition: all 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
           cursor: pointer;
 
@@ -180,8 +179,8 @@ header {
         right: 0;
         display: block;
         margin-left: auto;
-        margin-right: 30px;
-        margin-top: 25px;
+        margin-right: $s-7;
+        margin-top: $s-6;
         cursor: pointer;
         height: 25px;
       }
@@ -228,7 +227,7 @@ header {
         display: flex;
         align-self: flex-start;
         padding-left: 5%;
-        margin-top: 25px;
+        margin-top: $s-6;
         left: 0;
       }
 
@@ -248,13 +247,12 @@ header {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        font-size: 30px;
+        font-size: $font-size8;
         height: auto;
         z-index: 2;
 
         .item{
-          margin: 25px 0;
-          margin-right: 0;
+          margin: $s-6 0;
           opacity: 0;
           animation: mobileText;
            animation-timing-function: ease;
@@ -313,7 +311,7 @@ header {
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-top: 50px;
+          margin-top: $s-9;
         }
 
         .icon{
@@ -323,7 +321,7 @@ header {
             border-radius: 50%;
             width: 50px;
             height: 50px;
-            margin-right: 20px;
+            margin-right: $s-6;
             opacity: 0;
             animation: mobileText  0.5s 1s ease;
             animation-fill-mode: forwards;

@@ -27,7 +27,8 @@ export default {
     return {
       msg: "I'm a Front-End Developer",
       maxValue: this.$store.state.maxRangeSliderValue,
-      timeToScroll: false
+      timeToScroll: false,
+      isIntro: false,
     };
   },
   
@@ -35,12 +36,15 @@ export default {
     rangeSliderValue() {
       return this.$store.getters.getRangeSliderValue;
     },
+    
   },
   mounted() {
     setTimeout(() => {
       this.msg = 'Welcome to my Portfolio';
       this.timeToScroll = true;
     }, 5000);
+   
+     
   }
  
 
@@ -55,6 +59,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100vh;
+    z-index: 2;
 
     &__container {
         position: absolute;
@@ -75,7 +80,7 @@ export default {
     }
 
     .base__title {
-       @include typography(20, 50, $minVw, $maxVW);
+       @include typography(20, 48, $minVw, $maxVW);
         position: relative;
         letter-spacing: 5px;
         text-align: center;
@@ -84,7 +89,7 @@ export default {
 
 
         &[data-id="1"] {
-       @include typography(14, 50, $minVw, $maxVW);
+       @include typography(14, 48, $minVw, $maxVW);
 
             opacity: 0;
             animation: text 1.5s 2s ease;
@@ -102,7 +107,6 @@ export default {
         background: $blue;
         animation: introAnimation 3s 1s ease;
         animation-iteration-count: 2;
-
 
     }
 

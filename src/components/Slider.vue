@@ -36,7 +36,7 @@ export default {
 @import '@/styles/_variables.scss';
 
 .slider {
-    padding-bottom: 40px;
+    padding-bottom: $s-8;
     display: inline-block;
     width: 60%;
 
@@ -50,7 +50,7 @@ export default {
         width: 100%;
         height: 400px;
         object-fit: cover;
-        padding-bottom: 20px;
+        padding-bottom: $s-6;
     }
 
     &__buttons {

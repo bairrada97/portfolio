@@ -60,11 +60,12 @@ export default {
 <style lang="scss">
 @import '@/styles/_variables.scss';
 .about {
+
     display: flex;
     flex-direction: column;
 
     .base__title{
-      margin-bottom: 50px;
+      margin-bottom: $s-8;
     }
 
     &__container{
@@ -82,7 +83,7 @@ export default {
       left: 0;
       opacity: 0;
       width: 100%;
-      padding: 50px 0;
+      padding: $s-9 0;
       line-height: 1.5;
       text-align: left;
       vertical-align: top;
@@ -96,7 +97,7 @@ export default {
       
 
       @include laptopHeight{
-            width: 370px;
+        width: 350px;
       }
     }
 
@@ -218,23 +219,20 @@ export default {
 
       span{
         position: absolute;
+        display: block;
+        background: $blue;
         width: 10px;
         height: 10px;
-        display: block;
         border-radius: 50%;
-        background: $blue;
-        cursor: pointer;
         z-index: 9;
+        cursor: pointer;
         
       }
 
 
     }
 
-    figure{
-      height: 70%;
-    }
-
+   
 
 }
 </style>

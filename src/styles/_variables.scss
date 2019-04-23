@@ -18,6 +18,43 @@ $min-desktop-width: 1024px;
 $max-desktop-width: 1280px;
 $min-laptop-height: 600px;
 
+
+//font-sizing
+
+$font-size1: 0.75rem; //12px
+$font-size2: 0.875rem; //14px
+$font-size3: 1rem; //16px
+$font-size4: 1.125rem; //18px
+$font-size5: 1.25rem; //20px
+$font-size6: 1.5rem; //24px
+$font-size7: 1.75rem; //28px
+$font-size8: 2rem; // 32px
+$font-size9: 2.625rem; //42px
+$font-size10: 3rem; //48px
+$font-size11: 3.375rem; //54px
+$font-size12: 3.75rem; //60px;
+
+//spacing
+
+$s-1: 0.125rem; //2px
+$s-2: 0.25rem; //4px
+$s-3: 0.5rem; //8px
+$s-4: 0.75rem; //12px
+$s-5: 1rem; //16px
+$s-6: 1.5rem; //24px
+$s-7: 2rem; //32px
+$s-8: 2.5rem; //40px
+$s-9: 3rem; //48px
+$s-10: 4rem; // 64px
+
+$m-1: 1rem; //16px
+$m-2: 1.5rem; //24px
+$m-3: 2rem; //32px
+$m-4: 3rem; //48px
+$m-5: 4rem; //64px
+$m-6: 6rem; //96px
+
+
 @mixin laptopHeight{
   @media (min-height: #{$min-laptop-height}) and (max-height: #{$min-laptop-width}) {
     @content;

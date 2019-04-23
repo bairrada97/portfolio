@@ -16,8 +16,10 @@ export default {
       scrollingText: "Scroll To Build Website"
     };
   },
+  created(){
+    this.$store.commit('updateRangeSliderValue', this.counter);
+  },
   mounted(){
-
     window.addEventListener('wheel', this.mouseScroll);
   },
    beforeDestroy(){
@@ -58,7 +60,7 @@ export default {
   animation: text 3s ease;
   
   p{
-    @include typography(20, 20, $minVw, $maxVW);
+    font-size: $font-size5;
     color: $blue;
   }
 

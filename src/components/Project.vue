@@ -47,16 +47,16 @@ export default {
 
 .project {
     position: relative;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 300px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-direction: column;
-    cursor: pointer;
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
     transform-style: preserve-3d;
     outline: 1px solid transparent;
+    cursor: pointer;
     transition: all 0.2s ease;
 
     &:after {
@@ -116,13 +116,13 @@ export default {
 
     &__icons {
         opacity: 0;
-        margin-top: 40px;
-        margin-bottom: 70px;
+        padding-top: $s-8;
+        padding-bottom: $m-5;
         transition: all 0.3s 0.1s ease;
     }
 
     &__icon {
-        margin-right: 30px;
+        margin-right: $s-7;
 
         &:last-of-type {
             margin-right: 0;
@@ -146,12 +146,12 @@ export default {
 
         &:after {
             content: '';
-            width: 100px;
-            height: 2px;
-            background-color: $blue;
             position: absolute;
             bottom: -20px;
             left: 50%;
+            width: 100px;
+            height: 2px;
+            background-color: $blue;
             transform: translateX(-50%);
         }
     }
@@ -164,6 +164,7 @@ export default {
         color: $white;
         padding: 5px;
         margin-right: 10px;
+        font-size: $font-size1;
 
         &:last-of-type {
             margin-right: 0;
@@ -174,10 +175,10 @@ export default {
     &__name {
         position: relative;
         font-family: $louisGeorgeBold;
-        font-size: 23px;
+        font-size: $font-size6;
         color: $white;
         letter-spacing: 3.2px;
-        margin: 40px 60px 50px;
+        padding: $s-8 0 $s-9;
         z-index: 1;
     }
 
@@ -185,9 +186,5 @@ export default {
         fill: $white;
     }
 
-    &.cenas{
-
-
-    }
 }
 </style>

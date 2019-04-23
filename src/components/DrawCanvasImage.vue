@@ -199,9 +199,6 @@ export default {
 
   
 
-
-
-
   .illustrationImage {
     display: none;
     width: 100%;

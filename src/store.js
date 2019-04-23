@@ -130,8 +130,9 @@ export default new Vuex.Store({
     changePerspective: false,
     perspectiveText: '3D Mode',
     isMobile: false,
-    rangeSliderValue: 0,
+    rangeSliderValue: null,
     maxRangeSliderValue: 6,
+    isIntroVisible: false
   },
   getters: {
     showMoreProjects: state => state.projectsToShow + 4,
@@ -147,7 +148,8 @@ export default new Vuex.Store({
     routeTransition: state => state.transition,
     changePerspective: state => state.changePerspective,
     getRangeSliderValue: state => state.rangeSliderValue,
-    isMobile: state =>state.isMobile
+    isMobile: state =>state.isMobile,
+    isIntroVisible: state =>state.isIntroVisible
   },
   mutations: {
     updateProjectsToShow: (state, payload) => {
@@ -181,6 +183,9 @@ export default new Vuex.Store({
     },
     isMobile: (state, payload) =>{
       state.isMobile = payload;
+    },
+    isIntroVisible: (state, payload) => {
+      state.isIntroVisible = payload;
     }
   }
 });
