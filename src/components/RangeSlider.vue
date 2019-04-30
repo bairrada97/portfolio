@@ -20,26 +20,46 @@ export default {
     this.$store.commit('updateRangeSliderValue', this.counter);
   },
   mounted(){
+    var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
     window.addEventListener('wheel', this.mouseScroll);
+    if( touchDevice ){
+      scrollingText: "Tap to Build Website"
+      window.addEventListener('click', this.mouseScroll);
+    }
+
   },
    beforeDestroy(){
-    window.removeEventListener('wheel',  this.mouseScroll, false);
-    
+     var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
+     window.removeEventListener('wheel',  this.mouseScroll);
+    if( touchDevice  ) window.removeEventListener('click',  this.mouseScroll);
+
   },
   methods: {
     mouseScroll(e){
      this.throttle(e, this.handleScroll, 500);
     },
     handleScroll(event) {
-      event.deltaY < 0 ? this.counter-- : this.counter++;
-      this.$store.commit('updateRangeSliderValue', this.counter);
+       var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
+      this.$store.commit('updateRangeSliderValue',   this.counter++);
+      if(this.counter == 1) this.scrollingText = "Keep Scrolling"
+      if(this.counter == 2)  this.scrollingText = "Keep Scrolling"
+      if(this.counter == 3)  this.scrollingText = "You almost there"
+      if(this.counter == 4)  this.scrollingText = "Keep Scrolling"
+      if(this.counter == 5)  this.scrollingText = "Just one more time"
+      if( touchDevice  ){
+        if(this.counter == 1) this.scrollingText = "Keep tapping"
+        if(this.counter == 2)  this.scrollingText = "Keep tapping"
+        if(this.counter == 3)  this.scrollingText = "You almost there"
+        if(this.counter == 4)  this.scrollingText = "Keep tapping"
+        if(this.counter == 5)  this.scrollingText = "Just one more time"
+      }
     },
     throttle(event, func, limit) {
         if (!this.isScrolling) {
           func(event);
           this.isScrolling = true;
           setTimeout(() => this.isScrolling = false, limit)
-        }  
+        }
     }
   },
 };
@@ -58,7 +78,7 @@ export default {
   bottom: 100px;
   width: 50%;
   animation: text 3s ease;
-  
+
   p{
     font-size: $font-size5;
     color: $blue;

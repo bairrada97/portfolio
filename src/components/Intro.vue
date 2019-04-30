@@ -31,22 +31,21 @@ export default {
       isIntro: false,
     };
   },
-  
+
   computed: {
     rangeSliderValue() {
       return this.$store.getters.getRangeSliderValue;
     },
-    
+
   },
   mounted() {
     setTimeout(() => {
       this.msg = 'Welcome to my Portfolio';
       this.timeToScroll = true;
-    }, 5000);
-   
-     
+    }, 3300);
+
   }
- 
+
 
 };
 </script>
@@ -92,7 +91,7 @@ export default {
        @include typography(14, 48, $minVw, $maxVW);
 
             opacity: 0;
-            animation: text 1.5s 2s ease;
+            animation: text 1.5s 1s ease;
             animation-fill-mode: forwards;
         }
 
@@ -105,11 +104,9 @@ export default {
         transform: translateX(-50%);
         z-index: 2;
         background: $blue;
-        animation: introAnimation 3s 1s ease;
+        animation: introAnimation 1.8s 0.8s ease;
         animation-iteration-count: 2;
-
     }
-
 
 }
 </style>

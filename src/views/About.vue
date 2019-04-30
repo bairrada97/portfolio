@@ -133,7 +133,7 @@ export default {
 
             p{
             top: 36%;
-            left: -11%;
+            left: -28%;
             transform: rotate(-25deg);
           }
           
@@ -160,8 +160,8 @@ export default {
            }
            
             p{
-            top: 26%;
-            left: -10%;
+            top: 20%;
+            left: -26%;
             transform: rotate(-25deg);
           }
           

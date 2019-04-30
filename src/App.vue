@@ -34,13 +34,7 @@ router.beforeEach((to, from, next) => {
   next();
   }, 1000);
 
-console.log(to, from)
-if(to.name == "CC"){
-  store.commit('isIntroVisible', true);
-}else{
- store.commit('isIntroVisible', false);
-}
-  
+to.name == "home" ? store.commit('isIntroVisible', true) :  store.commit('isIntroVisible', false);
 
 });
 router.afterEach((to, from) => {
@@ -64,8 +58,10 @@ export default {
     return {
       maxValue: this.$store.state.maxRangeSliderValue,
       text: "3D Mode",
-      intro: false
     };
+  },
+  mounted(){
+
   },
   methods: {
     updateChangePerspective() {
@@ -74,9 +70,10 @@ export default {
     },
   },
   created() {
+
     this.$store.commit('updateTransition', false);
   },
- 
+
   computed: {
     makeModalVisible() {
       return this.$store.getters.showModal;
@@ -113,8 +110,8 @@ export default {
         text-align: center;
         color: $white;
         background-color: $lightBlack;
-        height: 100vh;
         overflow: auto;
+        height: 100vh;
     }
 
     .wrapper {

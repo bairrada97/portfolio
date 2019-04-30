@@ -14,7 +14,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'CC',
+      name: 'home',
       component: Home,
     },
     {
@@ -26,6 +26,7 @@ export default new Router({
       path: '/projects',
       name: 'projects',
       component: Projects,
+      props: true,
     },
     {
       path: '/interests',
@@ -33,9 +34,11 @@ export default new Router({
       component: Interests,
     },
     {
-      path: '/project/:name',
+      path: '/project/:name/:id',
+
       name: 'projectDetail',
       component: ProjectDetail,
+      props: true,
     },
   ],
 });

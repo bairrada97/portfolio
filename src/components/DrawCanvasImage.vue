@@ -1,8 +1,8 @@
 
 <template>
-  <div class="drawCanvas" :style="{ backgroundImage: `url(${myImage})` }">
-    <img class="illustrationImage" :src="illustrationImage" alt>
-  </div>
+<div class="drawCanvas" :style="{ backgroundImage: `url(${myImage})` }">
+  <img class="illustrationImage" :src="illustrationImage" :alt="illustrationDescription">
+</div>
 </template>
 
 <script>
@@ -13,10 +13,10 @@ export default {
   data() {
     return {
       myImage: this.$store.state.myImage,
-      illustrationImage: this.$store.state.illustrationImage
+      illustrationImage: this.$store.state.illustrationImage,
+      illustrationDescription: this.$store.state.illustrationDescription
     };
   },
- 
   mounted() {
     var image = document.querySelector(".illustrationImage");
     var imageCanvas = document.createElement("canvas");
@@ -26,17 +26,13 @@ export default {
     var pointLifetime = 1000;
     var points = [];
 
-
-
     if (image.complete) {
       start();
     } else {
       image.onload = start;
     }
 
-    /**
-     * Attaches event listeners and starts the effect.
-     */
+
     function start() {
       imageCanvas.addEventListener("mousemove", onMouseMove);
       imageCanvas.addEventListener("touchmove", onTouchMove);
@@ -46,11 +42,7 @@ export default {
       tick();
     }
 
-    /**
-     * Records the user's cursor position.
-     *
-     * @param {!MouseEvent} event
-     */
+
     function onMouseMove(event) {
       var rect = imageCanvas.getBoundingClientRect();
       points.push({
@@ -70,17 +62,11 @@ export default {
       });
     }
 
-    /**
-     * Resizes both canvases to fill the window.
-     */
     function resizeCanvases() {
-      imageCanvas.width = lineCanvas.width =  document.querySelector('.photoContainer').offsetWidth
-      imageCanvas.height = lineCanvas.height =  document.querySelector('.photoContainer').offsetHeight
+      imageCanvas.width = lineCanvas.width = document.querySelector('.photoContainer').offsetWidth
+      imageCanvas.height = lineCanvas.height = document.querySelector('.photoContainer').offsetHeight
     }
 
-    /**
-     * The main loop, called at ~60hz.
-     */
     function tick() {
       // Remove old points
       points = points.filter(function(point) {
@@ -93,11 +79,6 @@ export default {
       requestAnimationFrame(tick);
     }
 
-    /**
-     * Draws a line using the recorded cursor positions.
-     *
-     * This line is used to mask the original image.
-     */
     function drawLineCanvas() {
       var minimumLineWidth = 80;
       var maximumLineWidth = 80;
@@ -129,29 +110,20 @@ export default {
       }
     }
 
-    /**
-     * @param {{x: number, y: number}} a
-     * @param {{x: number, y: number}} b
-     * @return {number} The distance between points a and b
-     */
+
     function getDistanceBetween(a, b) {
       return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
     }
 
-   
-
-    /**
-     * Draws the original image, masked by the line drawn in drawLineToCanvas.
-     */
     function drawImageCanvas() {
-          let dpi = window.devicePixelRatio;
+      let dpi = window.devicePixelRatio;
 
 
-      if(document.querySelector('.drawCanvas') != null){
+      if (document.querySelector('.drawCanvas') != null) {
         imageCanvas.width = document.querySelector('.drawCanvas').offsetWidth;
         imageCanvas.height = document.querySelector('.drawCanvas').offsetHeight;
       }
-     
+
       // Emulate background-size: cover
       var width = imageCanvas.width;
       var height = imageCanvas.width / image.naturalWidth * image.naturalHeight;
@@ -197,7 +169,7 @@ export default {
     padding-bottom: 77%;
   }
 
-  
+
 
   .illustrationImage {
     display: none;

@@ -5,10 +5,10 @@
   <div class="projectDetail__container">
     <div class="projectDetail__infoContainer">
       <p class="projectDetail__text"  v-arrowUp>{{project.description}}</p>
-      <Slider :image="project.imagesSlider"  v-arrowUp/>
+      <Slider :image="project.imagesSlider"/>
     </div>
-      <a class="margin" :href="project.liveSite">Ver site</a>
-      <a :href="project.liveCode">Ver Código</a>
+      <a class="margin" :href="project.liveSite" target="_blank">See live</a>
+      <a :href="project.liveCode" target="_blank">See code</a>
   </div>
 </section>
 </template>
@@ -24,14 +24,14 @@ export default {
   components: {
     Project,
     Slider,
-  }, 
+  },
   data() {
     return {
       project: {},
     };
   },
   created() {
-    const projectId = this.$route.params.id; 
+    const projectId = ~~this.$route.params.id;
     this.project = this.$store.getters.getProject(projectId);
   },
 };
@@ -44,7 +44,7 @@ export default {
     font-family: $louisGeorgeBold;
 
     &__container {
-        background: linear-gradient(to bottom, #252525 20%, #202020 14%, #202020 95%);
+        background: linear-gradient(to bottom, $lightBlack 10%, $darkBlack 10%, $darkBlack 95%);
         padding: 0 5% $s-10 5%;
         text-align: left;
         margin-bottom: $m-6;
@@ -53,14 +53,14 @@ export default {
     &__infoContainer{
       display: flex;
 
-      @include tablet{
+      @include laptop{
         flex-direction: column-reverse;
       }
     }
 
     &__text {
         font-size: $font-size3;
-        margin-top: 164px;
+        margin-top: $m-6;
         margin-right: $m-1;
         margin-bottom: $m-2;
         max-width: 700px;
@@ -69,14 +69,14 @@ export default {
         width: 39%;
         vertical-align: top;
 
-        @include tablet{
+        @include laptop{
           display: block;
           width: 100%;
           margin-top: 0;
           margin-bottom: $m-3;
         }
 
-       
+
     }
 
     .margin {
@@ -84,7 +84,7 @@ export default {
 
          @include tablet{
             margin-left: 5%;
-          
+
         }
     }
 }

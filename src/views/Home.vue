@@ -2,7 +2,7 @@
     <template>
     <section class="home" >
       <transition name="intro" mode="in-out">
-        <Intro v-if="rangeSliderValue < maxValue" />
+          <Intro v-if="rangeSliderValue < maxValue" />
       </transition>
       <div class="home__titleContainer">
         <transition name="intro" mode="in-out">
@@ -13,9 +13,9 @@
         </transition>
         <transition name="intro" mode="in-out">
           <div class="iconContainer" v-if="rangeSliderValue >= maxValue - 1">
-            <a v-for="icon in socialIcons" class="icon" href="" :key="icon.name" >
+            <a target="_blank" v-for="icon in socialIcons" class="icon" :href="icon.link" :key="icon.name" >
               <span class="iconName">{{icon.name}}</span>
-              <img class="iconImage" :src="icon.icon" >
+              <img class="iconImage" :src="icon.icon" :alt="icon.name">
             </a>
           </div>
         </transition>
@@ -55,7 +55,7 @@ export default {
       return this.$store.getters.getRangeSliderValue;
     },
   },
- 
+
 
 };
 </script>
@@ -88,7 +88,7 @@ export default {
             height: 50px;
             margin-top: $s-9;
             margin-right: $s-6;
-     
+
 
             &:after{
               content: none;
@@ -128,6 +128,7 @@ export default {
               letter-spacing: 3px;
               opacity: 0;
               transition: all 0.3s ease;
+              margin-left: 5%;
             }
 
         }

@@ -1,10 +1,10 @@
 <!-- eslint-disable -->
 <template>
 <div class="slider">
-  <img :src="image[counter]" alt="">
+  <img :src="image[counter].image" :alt="image[counter].description">
   <div class="slider__buttons">
-    <svg rel="prev" @click="goBack"  width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.9 89.9"><path d="M28.8 45.6l38.8 38.2c1.3 1.2 3.3 1.2 4.5-.1s1.3-3.2.1-4.5L37.4 45.6l34.8-34.8c1.2-1.3 1.2-3.3-.1-4.5s-3.2-1.3-4.5-.1L28.8 45.6z"/></svg>
-    <svg rel="next" @click="goForward" width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.9 89.9"><path d="M34.3 6.2C33 5 31 5 29.8 6.2c-1.2 1.2-1.3 3.2-.1 4.5l34.8 34.8-34.8 33.6c-1.2 1.3-1.2 3.3.1 4.5 1.2 1.2 3.2 1.3 4.5.1l38.8-38.2L34.3 6.2z"/></svg>
+    <svg @click="goBack" width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.9 89.9"><path d="M28.8 45.6l38.8 38.2c1.3 1.2 3.3 1.2 4.5-.1s1.3-3.2.1-4.5L37.4 45.6l34.8-34.8c1.2-1.3 1.2-3.3-.1-4.5s-3.2-1.3-4.5-.1L28.8 45.6z"/></svg>
+    <svg @click="goForward" width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.9 89.9"><path d="M34.3 6.2C33 5 31 5 29.8 6.2c-1.2 1.2-1.3 3.2-.1 4.5l34.8 34.8-34.8 33.6c-1.2 1.3-1.2 3.3.1 4.5 1.2 1.2 3.2 1.3 4.5.1l38.8-38.2L34.3 6.2z"/></svg>
   </div>
 </div>
 </template>
@@ -18,17 +18,30 @@ export default {
   props: ['image'],
   data() {
     return {
-      counter: 0,
+      counter: this.$store.getters.getImageSlider
     };
   },
+  created() {
+    window.addEventListener('keydown', this.navigate);
+  },
+  destroyed() {
+    window.removeEventListener('keydown', this.navigate);
+  },
   methods: {
-    goForward(e) {
-      if (this.counter < this.image.length - 1) return this.counter++;
+    goForward() {
+      if (this.counter < this.image.length - 1) this.$store.commit('getProjectImage', this.counter++);
     },
     goBack() {
-      if (this.counter > 0) return this.counter--;
+      if (this.counter > 0) this.$store.commit('getProjectImage', this.counter--);
     },
-  },
+    navigate(e) {
+      if (e.key === 'ArrowLeft') this.goBack();
+      if (e.key === 'ArrowRight') this.goForward();
+    }
+
+
+  }
+
 };
 </script>
 
@@ -40,23 +53,28 @@ export default {
     display: inline-block;
     width: 60%;
 
-    @include tablet{
-      display: block;
-      width: 100%;
+    @include laptop {
+        display: block;
+        width: 100%;
+
     }
 
     img {
         display: block;
         width: 100%;
-        height: 400px;
-        object-fit: cover;
+        max-width: 702px;
         padding-bottom: $s-6;
+        margin-left: auto;
+
+        @include laptop {
+            max-width: none;
+        }
     }
 
     &__buttons {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
 
         svg {
             cursor: pointer;

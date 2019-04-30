@@ -1,126 +1,197 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-
 /* eslint-disable */
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    projects: [
-      {
+    projects: [{
         id: 0,
+        name: 'The Weather Forecast',
+        labels: ['Html', 'Sass', 'Jquery', 'PWA', "API"],
+        image: '/../assets/images/weather-app-06.png',
+        imagesSlider: [{
+            image: "/../assets/images/weather-app-01.png",
+            description: "one screen on Daily tab"
+          },
+          {
+            image: "/../assets/images/weather-app-02.png",
+            description: "two screens, in daily and extend tab"
+          },
+          {
+            image: "/../assets/images/weather-app-03.png",
+            description: "three screens, show different temperature on daily tab"
+          },
+          {
+            image: "/../assets/images/weather-app-04.png",
+            description: "two screens, on daily tab, changing background color"
+          },
+          {
+            image: "/../assets/images/weather-app-05.png",
+            description: "app fit in mobile screens"
+          }
+        ],
+        description: "The Weather Forecast, It's a progressive web app when the user is able to know the current temperature, wind, humidty and precipitation in any location, as well as the next 5 days.",
+        liveSite: 'https://the-weather-forecast.firebaseapp.com/',
+        liveCode: 'https://github.com/bairrada97/WeatherApp',
+      },
+      {
+        id: 1,
         name: 'Dyslexia App',
         labels: ['Html', 'Sass', 'Jquery', 'PWA'],
-        image: 'https://via.placeholder.com/150',
-        imagesSlider: ['https://via.placeholder.com/150', 'https://via.placeholder.com/150', 'https://via.placeholder.com/150'],
-        textTitle: 'Project Description',
-        description: "Dyslexia App It's a progressive web app Dyslexia App It's a progressive web app Dyslexia App It's a progressive web app Dyslexia App It's a progressive web App Dyslexia App It's a progressive web app Dyslexia App It's a progressive web App Dyslexia App It's a progressive web app Dyslexia App It's a progressive web app Dyslexia App It's a progressive web app Dyslexia App It's a progressive web app Dyslexia App It's a progressive web app Dyslexia App It's a progressive web app ",
+        image: '/../assets/images/dislexia-app-04.png',
+        imagesSlider: [{
+            image: "/../assets/images/dislexia-app-01.png",
+            description: "main screen"
+          },
+          {
+            image: "/../assets/images/dislexia-app-02.png",
+            description: "screen when ask if its dyslexic or not"
+          },
+          {
+            image: "/../assets/images/dislexia-app-03.png",
+            description: "screen who ask if you are a boy or girl"
+          },
+          {
+            image: "/../assets/images/dislexia-app-04.png",
+            description: "screen to choose how you feel"
+          }
+
+        ],
+        description: "Dyslexia App, It's an app to complement a goose game, to help people who don't suffer from dyslexia understand how life can be hard for people who suffer. This app It's built in standard Front-End skills, also was my first project in which I created a Progressive web app.",
         liveSite: 'https://dyslexia-app.firebaseapp.com/',
         liveCode: 'https://github.com/bairrada97/DyslexiaApp',
       },
       {
-        id: 1,
-        name: 'Quizz Game',
-        labels: ['Html', 'Sass', 'Jquery', 'PWA'],
-        image: 'https://via.placeholder.com/150',
-      },
-      {
         id: 2,
-        name: 'Dyslexia App',
-        labels: ['Html', 'Sass', 'Jquery', 'PWA'],
+        name: 'Chess Game',
+        labels: ['Html', 'Sass', 'Javascript', 'ES6 Classes'],
         image: 'https://via.placeholder.com/150',
+        imagesSlider: [{
+            image: "https://via.placeholder.com/150",
+            description: "alt"
+          },
+          {
+            image: "https://via.placeholder.com/150",
+            description: "alt"
+          },
+          {
+            image: "https://via.placeholder.com/150",
+            description: "alt"
+          }
+
+        ],
+        description: "Chess Game, is a simple game  when user's can play chess. It was also a project where I could pratice Javascript as a object oriented programming language.",
+        liveSite: 'https://the-weather-forecast.firebaseapp.com/',
+        liveCode: 'https://github.com/bairrada97/Chess-Game',
       }
     ],
-    interests: [
-      {
+    interests: [{
         id: 0,
-        image: 'https://via.placeholder.com/150',
-        name: '',
+        image: '/../assets/images/d-luis-bridge.webp',
+        description: "D.Luis Bridge",
         isSelected: false,
       },
       {
         id: 1,
-        image: 'https://via.placeholder.com/150',
-        name: '',
+        image: '/../assets/images/temple-of-debod.webp',
+        description: "Temple of Debod",
         isSelected: false,
       },
       {
         id: 2,
-        image: 'img/3.jpg',
-        name: '',
+        image: '/../assets/images/budapest-parlament.webp',
+        description: "Budapest Parlament",
         isSelected: false,
       },
       {
         id: 3,
-        image: 'img/1.jpg',
-        name: '',
+        image: '/../assets/images/leaf.webp',
+        description: "Leaf",
         isSelected: false,
       },
       {
         id: 4,
-        image: 'img/2.jpg',
-        name: '',
+        image: '/../assets/images/aveiro.webp',
+        description: "Aveiro",
+        isSelected: false,
+      },
+      {
+        id: 5,
+        image: '/../assets/images/porto-landscape.webp',
+        description: "Porto Landscape",
+        isSelected: false,
+      },
+      {
+        id: 6,
+        image: '/../assets/images/andorra-landscape.webp',
+        description: "Andorra Landscape",
         isSelected: false,
       },
     ],
-    myImage: '/../assets/images/me2.png',
+    myImage: '/../assets/images/bairradaFace.png',
     illustrationImage: '/../assets/images/illustrationImage.png',
+    illustrationDescription: "Illustration of me",
     socialIcons: {
-      github:{
+      github: {
         icon: '/../assets/images/Github.svg',
-        name: "GitHub"
+        name: "GitHub",
+        link: "https://github.com/bairrada97"
       },
-      linkedin:{
-        icon: '/../assets/images/Linkedin.svg',
-        name: "Linkedin"
+      linkedin: {
+        icon: '/../assets/images/LinkedIn.svg',
+        name: "Linkedin",
+        link: "https://www.linkedin.com/in/joao-bairrada/"
       },
-      instagram:{
+      instagram: {
         icon: '/../assets/images/Instagram.svg',
-        name: "Instagram"
+        name: "Instagram",
+        link: "https://www.instagram.com/_bairrada_/"
       },
       cv: {
         icon: '/../assets/images/iOSPaper.svg',
-        name: "CV"
+        name: "CV",
+        link: "/../assets/images/JoaoBairradaResume.pdf"
       }
     },
-    aboutMePhoto: '/../assets/images/bairrada2.png',
+    aboutMePhoto: '/../assets/images/bairrada.png',
     about: {
-      
-      language:{
+
+      language: {
         id: 0,
         image: '/../assets/images/language.png',
-        text: "EU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portuguesEU falo ingles e portugues"
+        text: "I can speak Portuguese and English"
       },
       mouse: {
         id: 1,
         image: '/../assets/images/rato.png',
-        text: "EU falo ingles e portuguesssss"
+        text: "Currently working at Fullsix"
       },
       photo: {
         id: 2,
         image: '/../assets/images/photo.png',
-        text: "EU falo ingles e russo"
+        text: "I love taking photos as an hobby, also I love coding"
       },
-      keyboard:{
+      keyboard: {
         id: 3,
         image: '/../assets/images/teclado.png',
-        text: "EU falo ingles e sueco"
+        text: "My current skills are: HTML, Css/Sass, Javascript/Jquery and Vue.js, I know also Git and Gulp"
       },
-      roots:{
+      roots: {
         id: 4,
         image: '/../assets/images/raizes.png',
-        text: "EU falo ingles e baleies"
+        text: "I'm from Lisbon, Portugal"
       },
       diploma: {
         id: 5,
         image: '/../assets/images/canudo.png',
-        text: "EU falo ingles e espanhol"
+        text: "I studied Economics in High School and took a specialization course in Front-End"
       },
-      brain : {
+      brain: {
         id: 6,
         image: '/../assets/images/brain.png',
-        text: "zeze"
+        text: "I'm a Front-End Developer"
       }
 
     },
@@ -132,11 +203,12 @@ export default new Vuex.Store({
     isMobile: false,
     rangeSliderValue: null,
     maxRangeSliderValue: 6,
-    isIntroVisible: false
+    isIntroVisible: false,
+    projectImageSlider: 0
   },
   getters: {
-    showMoreProjects: state => state.projectsToShow + 4,
-    showMoreInterests: state => state.interestsToShow + 4,
+    showMoreProjects: state => state.projectsToShow + 3,
+    showMoreInterests: state => state.interestsToShow + 3,
     showModal: (state) => {
       for (let i = 0; i < state.interests.length; i++) {
         if (state.interests[i].isSelected) return state.interests[i];
@@ -148,8 +220,9 @@ export default new Vuex.Store({
     routeTransition: state => state.transition,
     changePerspective: state => state.changePerspective,
     getRangeSliderValue: state => state.rangeSliderValue,
-    isMobile: state =>state.isMobile,
-    isIntroVisible: state =>state.isIntroVisible
+    isMobile: state => state.isMobile,
+    isIntroVisible: state => state.isIntroVisible,
+    getImageSlider: state => state.projectImageSlider
   },
   mutations: {
     updateProjectsToShow: (state, payload) => {
@@ -181,11 +254,14 @@ export default new Vuex.Store({
     updateRangeSliderValue: (state, payload) => {
       state.rangeSliderValue = payload;
     },
-    isMobile: (state, payload) =>{
+    isMobile: (state, payload) => {
       state.isMobile = payload;
     },
     isIntroVisible: (state, payload) => {
       state.isIntroVisible = payload;
+    },
+    getProjectImage: (state, payload) => {
+      state.projectImageSlider = payload;
     }
   }
 });

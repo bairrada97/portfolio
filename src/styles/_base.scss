@@ -9,8 +9,8 @@ html{
 
 section{
   height: calc(100vh - 100px);
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
     @include tablet{
       height: 100vh;
