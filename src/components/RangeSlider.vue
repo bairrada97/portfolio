@@ -43,7 +43,7 @@ export default {
       this.$store.commit('updateRangeSliderValue',   this.counter++);
       if(this.counter == 1) this.scrollingText = "Keep Scrolling"
       if(this.counter == 2)  this.scrollingText = "Keep Scrolling"
-      if(this.counter == 3)  this.scrollingText = "You almost there"
+      if(this.counter == 3)  this.scrollingText = "You are almost there"
       if(this.counter == 4)  this.scrollingText = "Keep Scrolling"
       if(this.counter == 5)  this.scrollingText = "Just one more time"
       if( touchDevice  ){

@@ -17,9 +17,11 @@ export default {
   props: ['selectedPhoto'],
   created() {
     window.addEventListener('keydown', this.navigate);
+    document.querySelector('#app').style.overflow = 'hidden';
   },
   destroyed() {
     window.removeEventListener('keydown', this.navigate);
+    document.querySelector('#app').style.overflow = 'auto';
   },
   methods: {
     hiddenModal() {
@@ -55,14 +57,33 @@ export default {
     align-items: center;
     justify-content: center;
     transition: all 0.5s ease;
+    padding: 0 5%;
+    box-sizing: border-box;
+
+    svg {
+        cursor: pointer;
+        position: absolute;
+        top: -$s-10;
+        right: -$s-7;
+        fill: $white;
+
+        @include tablet {
+          margin-right: 5%;
+        }
+
+    }
 
     &__container {
         position: relative;
+        max-width: 700px;
+
+        @include laptopHeight{
+          max-width: 600px;
+        }
     }
 
     &__image {
-        max-width: 970px;
-        width: 80%;
+        width: 100%;
     }
 
     .slider__buttons {
@@ -72,22 +93,21 @@ export default {
 
         svg {
             bottom: 0;
-            right: 120px;
+            right: 0;
             top: unset;
+            margin-right: 0;
 
             &.left {
-                right: 150px
+                right: $s-7;
             }
+        }
+
+        @include tablet{
+          margin-right: 0;
         }
 
     }
 
-    svg {
-        cursor: pointer;
-        position: absolute;
-        top: -60px;
-        right: -60px;
-        fill: $white;
-    }
+
 }
 </style>

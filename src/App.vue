@@ -8,7 +8,7 @@
                       || !isIntroVisible "/>
       </transition>
       <div class="wrapper">
-        <!--<BtnChangePerspective @click.native="updateChangePerspective" :text="text"/>-->
+        <BtnChangePerspective @click.native="updateChangePerspective" :text="text"/>
         <router-view :class="{ 'perspective' : changePerspective }" />
       </div>
       <transition name="fade">

@@ -83,7 +83,7 @@ export default new Vuex.Store({
 
         ],
         description: "Chess Game, is a simple game  when user's can play chess. It was also a project where I could pratice Javascript as a object oriented programming language.",
-        liveSite: 'https://the-weather-forecast.firebaseapp.com/',
+        liveSite: 'https://bairrada97.github.io/Chess-Game/',
         liveCode: 'https://github.com/bairrada97/Chess-Game',
       }
     ],
@@ -152,7 +152,7 @@ export default new Vuex.Store({
       cv: {
         icon: '/../assets/images/iOSPaper.svg',
         name: "CV",
-        link: "/../assets/images/JoaoBairradaResume.pdf"
+        link: "/../assets/images/bairradaResume.pdf"
       }
     },
     aboutMePhoto: '/../assets/images/bairrada.png',

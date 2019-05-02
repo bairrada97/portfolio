@@ -4,11 +4,18 @@
   <h2 class="base__title" v-arrowUp>{{project.name}}</h2>
   <div class="projectDetail__container">
     <div class="projectDetail__infoContainer">
-      <p class="projectDetail__text"  v-arrowUp>{{project.description}}</p>
-      <Slider :image="project.imagesSlider"/>
+      <div class="projectDetail__textContainer">
+        <p class="projectDetail__text" v-arrowUp>{{project.description}}</p>
+        <div class="projectDetail__labelContainer">
+          <p class="projectDetail__subTitle">Skills:</p>
+          <span class="projectDetail__label" :key="label" v-for="label in project.labels">{{ label }}</span>
+        </div>
+      </div>
+      <Slider :image="project.imagesSlider" />
     </div>
-      <a class="margin" :href="project.liveSite" target="_blank">See live</a>
-      <a :href="project.liveCode" target="_blank">See code</a>
+
+    <a class="margin" :href="project.liveSite" target="_blank">See live</a>
+    <a :href="project.liveCode" target="_blank">See code</a>
   </div>
 </section>
 </template>
@@ -45,44 +52,80 @@ export default {
 
     &__container {
         background: linear-gradient(to bottom, $lightBlack 10%, $darkBlack 10%, $darkBlack 95%);
-        padding: 0 5% $s-10 5%;
+        padding: 0 5% $s-10;
         text-align: left;
         margin-bottom: $m-6;
     }
 
-    &__infoContainer{
-      display: flex;
+    &__infoContainer {
+        display: flex;
+        flex-wrap: wrap;
 
-      @include laptop{
-        flex-direction: column-reverse;
-      }
+        @include laptop {
+            flex-direction: column-reverse;
+        }
     }
 
-    &__text {
-        font-size: $font-size3;
-        margin-top: $m-6;
+    &__textContainer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 7rem;
         margin-right: $m-1;
         margin-bottom: $m-2;
         max-width: 700px;
         line-height: 1.5;
-        display: inline-block;
-        width: 39%;
-        vertical-align: top;
+        flex: 1 1 40%;
 
-        @include laptop{
-          display: block;
-          width: 100%;
-          margin-top: 0;
-          margin-bottom: $m-3;
+        @include laptop {
+            display: block;
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: $m-4;
         }
 
+    }
+
+    &__text {
+        font-size: $font-size3;
+    }
+
+    &__subTitle{
+      margin-bottom: $s-5;
+      font-size: $font-size5;
+      color: $blue;
+      width: 100%;
+    }
+
+    &__labelContainer {
+        position: relative;
+        z-index: 1;
+        margin-top: $s-9;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    &__label {
+        border-radius: 10px;
+        background-color: #1b191a;
+        font-family: $louisGeorgeBold;
+        letter-spacing: 2.2px;
+        color: $white;
+        padding: 5px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-size: $font-size1;
+
+        &:last-of-type {
+            margin-right: 0;
+        }
 
     }
 
     .margin {
         margin-right: $m-4;
 
-         @include tablet{
+        @include tablet {
             margin-left: 5%;
 
         }

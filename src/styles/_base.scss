@@ -35,7 +35,7 @@ section{
 .tagName {
         display: none;
         transform: rotateX(0) rotateY(0) rotateZ(0) translateZ(0);
-   
+
 
     .arrow {
       display: none;
@@ -114,7 +114,7 @@ a {
         letter-spacing: 10px;
         text-align: left;
         margin-bottom: $m-5;
-        margin-top: $m-6;
+        margin-top: $m-5;
 
         @include tablet{
           margin-bottom: $m-4;

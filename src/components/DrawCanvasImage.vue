@@ -153,7 +153,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   max-height: 785px;
-  padding-bottom: 75%;
+  padding-bottom: 73%;
   position: relative;
   width: 100%;
   box-sizing: border-box;

@@ -3,8 +3,8 @@
 <div class="slider">
   <img :src="image[counter].image" :alt="image[counter].description">
   <div class="slider__buttons">
-    <svg @click="goBack" width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.9 89.9"><path d="M28.8 45.6l38.8 38.2c1.3 1.2 3.3 1.2 4.5-.1s1.3-3.2.1-4.5L37.4 45.6l34.8-34.8c1.2-1.3 1.2-3.3-.1-4.5s-3.2-1.3-4.5-.1L28.8 45.6z"/></svg>
-    <svg @click="goForward" width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.9 89.9"><path d="M34.3 6.2C33 5 31 5 29.8 6.2c-1.2 1.2-1.3 3.2-.1 4.5l34.8 34.8-34.8 33.6c-1.2 1.3-1.2 3.3.1 4.5 1.2 1.2 3.2 1.3 4.5.1l38.8-38.2L34.3 6.2z"/></svg>
+    <svg class="js-left" @click="goBack" width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.9 89.9"><path d="M28.8 45.6l38.8 38.2c1.3 1.2 3.3 1.2 4.5-.1s1.3-3.2.1-4.5L37.4 45.6l34.8-34.8c1.2-1.3 1.2-3.3-.1-4.5s-3.2-1.3-4.5-.1L28.8 45.6z"/></svg>
+    <svg class="js-right" @click="goForward" width="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 101.9 89.9"><path d="M34.3 6.2C33 5 31 5 29.8 6.2c-1.2 1.2-1.3 3.2-.1 4.5l34.8 34.8-34.8 33.6c-1.2 1.3-1.2 3.3.1 4.5 1.2 1.2 3.2 1.3 4.5.1l38.8-38.2L34.3 6.2z"/></svg>
   </div>
 </div>
 </template>
@@ -26,6 +26,17 @@ export default {
   },
   destroyed() {
     window.removeEventListener('keydown', this.navigate);
+    this.$store.commit('getProjectImage', 0);
+  },
+  updated(){
+    if(this.counter == 0){
+      document.querySelector('.js-left').style.opacity = "0.3";
+    }else if(this.counter == this.image.length - 1){
+      document.querySelector('.js-right').style.opacity = "0.3";
+    }else{
+      document.querySelector('.js-left').style.opacity = "1";
+      document.querySelector('.js-right').style.opacity = "1";
+    }
   },
   methods: {
     goForward() {
@@ -50,8 +61,7 @@ export default {
 
 .slider {
     padding-bottom: $s-8;
-    display: inline-block;
-    width: 60%;
+    flex: 1 1 55%;
 
     @include laptop {
         display: block;
@@ -65,6 +75,7 @@ export default {
         max-width: 702px;
         padding-bottom: $s-6;
         margin-left: auto;
+        user-select: none;
 
         @include laptop {
             max-width: none;

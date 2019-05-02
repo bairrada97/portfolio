@@ -2,7 +2,7 @@
 <div @mousemove="getMouseValues"
      @mouseleave="resetMouseValues"
      class="btnChangePerspective"
-     v-if="rangeSliderValue == maxValue" ref="el">
+     v-if="onlyProjectPage">
   <button  type="button" name="button">
     <span @mousemove="getMouseValues">{{perspectiveText}}</span>
   </button>
@@ -61,6 +61,9 @@ export default {
     changePerspective() {
       return this.$store.getters.changePerspective;
     },
+    onlyProjectPage(){
+      return this.$route.path === "/projects"
+    }
   },
 };
 </script>

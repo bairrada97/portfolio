@@ -84,12 +84,17 @@
                 transform: translateZ(80px);
             }
             .project__icons,
-            .project__labelContainer {
+            .project__labelContainer,
+            .iconName  {
                 opacity: 1;
             }
 
             &:before {
                 transform: translate3d(10px, 0, -60px);
+            }
+
+            &:after {
+                background: rgba($darkBlack, 0.8);
             }
 
             &__icons {
