@@ -14,8 +14,8 @@
       <Slider :image="project.imagesSlider" />
     </div>
 
-    <a class="margin" :href="project.liveSite" target="_blank">See live</a>
-    <a :href="project.liveCode" target="_blank">See code</a>
+    <a class="margin" :href="project.liveSite" target="_blank">Go to Site</a>
+    <a :href="project.liveCode" target="_blank">Code in Github</a>
   </div>
 </section>
 </template>

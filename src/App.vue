@@ -30,19 +30,19 @@ import store from './store';
 router.beforeEach((to, from, next) => {
   store.commit('updateChangePerspective', false);
   store.commit('updateTransition', true);
-  setTimeout(function(){
-  next();
+  setTimeout(function() {
+    next();
   }, 1000);
 
-to.name == "home" ? store.commit('isIntroVisible', true) :  store.commit('isIntroVisible', false);
+  to.name == "home" ? store.commit('isIntroVisible', true) : store.commit('isIntroVisible', false);
 
 });
 router.afterEach((to, from) => {
   document.querySelector('#app').style.overflow = 'auto';
   store.commit('isMobile', false);
-  setTimeout(function(){
+  setTimeout(function() {
     store.commit('updateTransition', false);
-}, 800);
+  }, 800);
 
 });
 
@@ -60,8 +60,9 @@ export default {
       text: "3D Mode",
     };
   },
-  mounted(){
-
+  mounted() {
+    let height = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+    document.querySelector('#app').style.height = height + 'px';
   },
   methods: {
     updateChangePerspective() {
@@ -87,10 +88,10 @@ export default {
     rangeSliderValue() {
       return this.$store.getters.getRangeSliderValue;
     },
-    isIntroVisible(){
+    isIntroVisible() {
       return this.$store.getters.isIntroVisible;
     },
-    isHome(){
+    isHome() {
       return window.location.pathname != "/"
     }
 
@@ -111,7 +112,7 @@ export default {
         color: $white;
         background-color: $lightBlack;
         overflow: auto;
-        height: 100vh;
+
     }
 
     .wrapper {

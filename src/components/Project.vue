@@ -116,7 +116,7 @@ export default {
         }
 
         &:after {
-            background: rgba($darkBlack, 0.8);
+            background: rgba($darkBlack, 0.6);
         }
 
     }

@@ -4,4 +4,10 @@ module.exports = {
       fix: true,
     });
   },
+
+  pwa: {
+    name: 'Joao Bairrada Portfolio',
+    themeColor: '#4758fc',
+    msTileColor: '#4758fc'
+  }
 };

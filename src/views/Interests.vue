@@ -2,6 +2,7 @@
 <template>
 <section class="interests">
   <h2 class="base__title" v-arrowUp>Interests</h2>
+  <p class="interests__description">Besides coding, photography is one of my passions. Here are some photos I took</p>
   <div class="interests__container">
     <Photo  @click.native="showModal(photo)" v-for="(photo, index) in photos.slice(0, interestsToShow)" :key="index" :photo="photo"/>
   </div>
@@ -55,6 +56,11 @@ export default {
         @include laptop{
           justify-content: center;
         }
+    }
+
+    &__description{
+      text-align: left;
+      margin-bottom: $s-7;
     }
 }
 </style>

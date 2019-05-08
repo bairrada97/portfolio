@@ -38,6 +38,15 @@ export default {
     },
 
   },
+  created(){
+    document.querySelector('#app').style.overflow = 'hidden';
+
+  },
+  beforeDestroy(){
+    document.querySelector('#app').style.overflow = 'auto';
+
+
+  },
   mounted() {
     setTimeout(() => {
       this.msg = 'Welcome to my Portfolio';

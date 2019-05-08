@@ -222,7 +222,7 @@ export default {
             border-radius: 50%;
             z-index: 9;
             cursor: pointer;
-
+            
         }
 
     }

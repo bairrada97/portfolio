@@ -29,13 +29,15 @@ export default {
     this.$store.commit('getProjectImage', 0);
   },
   updated(){
+    let arrowLeft = document.querySelector('.js-left'),
+        arrowRight = document.querySelector('.js-right');
     if(this.counter == 0){
-      document.querySelector('.js-left').style.opacity = "0.3";
+      arrowLeft.style.opacity = "0.3";
     }else if(this.counter == this.image.length - 1){
-      document.querySelector('.js-right').style.opacity = "0.3";
+      arrowRight.style.opacity = "0.3";
     }else{
-      document.querySelector('.js-left').style.opacity = "1";
-      document.querySelector('.js-right').style.opacity = "1";
+      arrowLeft.style.opacity = "1";
+      arrowRight.style.opacity = "1";
     }
   },
   methods: {
@@ -62,6 +64,7 @@ export default {
 .slider {
     padding-bottom: $s-8;
     flex: 1 1 55%;
+    transition: all 1s ease;
 
     @include laptop {
         display: block;
@@ -76,6 +79,7 @@ export default {
         padding-bottom: $s-6;
         margin-left: auto;
         user-select: none;
+        transition: all 1s ease;
 
         @include laptop {
             max-width: none;
@@ -86,6 +90,7 @@ export default {
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        transition: all 1s ease;
 
         svg {
             cursor: pointer;
