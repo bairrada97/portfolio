@@ -2,7 +2,7 @@
 <!-- eslint-disable -->
 <template>
 <section class="projects">
-  <h2 class="base__title">Projects</h2>
+  <h1 class="base__title">Projects</h1>
   <div class="projects__container">
     <Project  v-for="(project,index) in projects.slice(0, projectsToShow)" :key="index" :project="project" />
   </div>

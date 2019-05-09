@@ -1,7 +1,7 @@
 <!-- eslint-disable -->
 <template>
 <section class="projectDetail">
-  <h2 class="base__title" v-arrowUp>{{project.name}}</h2>
+  <h1 class="base__title" v-arrowUp>{{project.name}}</h1>
   <div class="projectDetail__container">
     <div class="projectDetail__infoContainer">
       <div class="projectDetail__textContainer">

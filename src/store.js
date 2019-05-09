@@ -6,8 +6,32 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    projects: [{
+    projects: [
+      {
         id: 0,
+        name: 'Chess Game',
+        labels: ['Html', 'Sass', 'Javascript', 'ES6 Classes'],
+        image: '/../assets/images/chess-01.png',
+        imagesSlider: [{
+            image: "/../assets/images/chess-01.png",
+            description: "init board chess"
+          },
+          {
+            image: "/../assets/images/chess-02.png",
+            description: "pawn select while showing possible moves"
+          },
+          {
+            image: "/../assets/images/chess-03.png",
+            description: "pieces in middle of board with queen selected"
+          }
+
+        ],
+        description: "Chess Game, is a simple game  when user's can play chess. It was also a project where I could pratice Javascript as a object oriented programming language.",
+        liveSite: 'https://bairrada97.github.io/Chess-Game/',
+        liveCode: 'https://github.com/bairrada97/Chess-Game',
+      },
+      {
+        id: 1,
         name: 'The Weather Forecast',
         labels: ['Html', 'Sass', 'Jquery', 'PWA', "API"],
         image: '/../assets/images/weather-app-06.png',
@@ -37,7 +61,7 @@ export default new Vuex.Store({
         liveCode: 'https://github.com/bairrada97/WeatherApp',
       },
       {
-        id: 1,
+        id: 2,
         name: 'Dyslexia App',
         labels: ['Html', 'Sass', 'Jquery', 'PWA'],
         image: '/../assets/images/dislexia-app-04.png',
@@ -63,29 +87,6 @@ export default new Vuex.Store({
         liveSite: 'https://dyslexia-app.firebaseapp.com/',
         liveCode: 'https://github.com/bairrada97/DyslexiaApp',
       },
-      {
-        id: 2,
-        name: 'Chess Game',
-        labels: ['Html', 'Sass', 'Javascript', 'ES6 Classes'],
-        image: 'https://via.placeholder.com/150',
-        imagesSlider: [{
-            image: "https://via.placeholder.com/150",
-            description: "alt"
-          },
-          {
-            image: "https://via.placeholder.com/150",
-            description: "alt"
-          },
-          {
-            image: "https://via.placeholder.com/150",
-            description: "alt"
-          }
-
-        ],
-        description: "Chess Game, is a simple game  when user's can play chess. It was also a project where I could pratice Javascript as a object oriented programming language.",
-        liveSite: 'https://bairrada97.github.io/Chess-Game/',
-        liveCode: 'https://github.com/bairrada97/Chess-Game',
-      }
     ],
     interests: [{
         id: 0,

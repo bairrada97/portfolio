@@ -1,7 +1,7 @@
 <!-- eslint-disable -->
 <template>
 <section class="about">
-  <h2 class="base__title" v-arrowUp>About Me</h2>
+  <h1 class="base__title" v-arrowUp>About Me</h1>
   <div class="about__container">
     <figure>
       <img class="about__image" :src="aboutMe" alt="">
@@ -222,7 +222,7 @@ export default {
             border-radius: 50%;
             z-index: 9;
             cursor: pointer;
-            
+
         }
 
     }
