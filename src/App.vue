@@ -27,7 +27,7 @@ import BtnChangePerspective from '@/components/BtnChangePerspective.vue';
 import router from './router';
 import store from './store';
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, from, next) => { 
   store.commit('updateChangePerspective', false);
   store.commit('updateTransition', true);
   setTimeout(function() {

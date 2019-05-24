@@ -23,6 +23,11 @@ export default {
     window.removeEventListener('keydown', this.navigate);
     document.querySelector('#app').style.overflow = 'auto';
   },
+  mounted() {
+    const container = document.querySelector('img');
+    container.addEventListener('touchstart', this.startTouch, false);
+    container.addEventListener('touchmove', this.moveTouch, false);
+  },
   methods: {
     hiddenModal() {
       this.$store.commit('isHidden', this.selectedPhoto.id);
@@ -36,6 +41,32 @@ export default {
     },
     goForward() {
       this.$store.commit('isVisible', this.selectedPhoto.id + 1);
+    },
+    startTouch(e) {
+      this.initialX = e.touches[0].clientX;
+      this.initialY = e.touches[0].clientY;
+    },
+    moveTouch(e) {
+      if (this.initialX === null) return;
+      if (this.initialY === null) return;
+
+      const currentX = e.touches[0].clientX;
+      const currentY = e.touches[0].clientY;
+      const diffX = this.initialX - currentX;
+      const diffY = this.initialY - currentY;
+
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0) {
+          this.goForward();
+        } else {
+          this.goBack();
+        }
+      }
+
+      this.initialX = null;
+      this.initialY = null;
+
+      e.preventDefault();
     },
 
   },

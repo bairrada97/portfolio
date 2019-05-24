@@ -56,6 +56,10 @@ export default {
         @include laptop{
           justify-content: center;
         }
+
+        @include mobile{
+          grid-template-columns: 1fr;
+        }
     }
 
     &__description{

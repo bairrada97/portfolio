@@ -162,7 +162,7 @@ export default new Vuex.Store({
       language: {
         id: 0,
         image: '/../assets/images/language.png',
-        text: "I can speak Portuguese and English"
+        text: "Portuguese and English"
       },
       mouse: {
         id: 1,
@@ -172,22 +172,22 @@ export default new Vuex.Store({
       photo: {
         id: 2,
         image: '/../assets/images/photo.png',
-        text: "I love taking photos as an hobby, also I love coding"
+        text: "Photography and Coding"
       },
       keyboard: {
         id: 3,
         image: '/../assets/images/teclado.png',
-        text: "My current skills are: HTML, Css/Sass, Javascript/Jquery and Vue.js, I know also Git and Gulp"
+        text: "Skills: HTML, Css/Sass, Javascript/Jquery, Vue.js, Git and Gulp"
       },
       roots: {
         id: 4,
         image: '/../assets/images/raizes.png',
-        text: "I'm from Lisbon, Portugal"
+        text: "Lisbon, Portugal"
       },
       diploma: {
         id: 5,
         image: '/../assets/images/canudo.png',
-        text: "I studied Economics in High School and took a specialization course in Front-End"
+        text: "Course in Front-End"
       },
       brain: {
         id: 6,

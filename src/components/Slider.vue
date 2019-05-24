@@ -18,24 +18,32 @@ export default {
   props: ['image'],
   data() {
     return {
-      counter: this.$store.getters.getImageSlider
+      counter: this.$store.getters.getImageSlider,
+      initialX: null,
+      initialY: null
     };
   },
   created() {
     window.addEventListener('keydown', this.navigate);
+
+  },
+  mounted() {
+    var container = document.querySelector('img');
+    container.addEventListener("touchstart", this.startTouch, false);
+    container.addEventListener("touchmove", this.moveTouch, false);
   },
   destroyed() {
     window.removeEventListener('keydown', this.navigate);
     this.$store.commit('getProjectImage', 0);
   },
-  updated(){
+  updated() {
     let arrowLeft = document.querySelector('.js-left'),
-        arrowRight = document.querySelector('.js-right');
-    if(this.counter == 0){
+      arrowRight = document.querySelector('.js-right');
+    if (this.counter == 0) {
       arrowLeft.style.opacity = "0.3";
-    }else if(this.counter == this.image.length - 1){
+    } else if (this.counter == this.image.length - 1) {
       arrowRight.style.opacity = "0.3";
-    }else{
+    } else {
       arrowLeft.style.opacity = "1";
       arrowRight.style.opacity = "1";
     }
@@ -50,8 +58,29 @@ export default {
     navigate(e) {
       if (e.key === 'ArrowLeft') this.goBack();
       if (e.key === 'ArrowRight') this.goForward();
-    }
+    },
+    startTouch(e) {
+      this.initialX = e.touches[0].clientX;
+      this.initialY = e.touches[0].clientY;
+    },
+    moveTouch(e) {
+      if (this.initialX === null) return;
+      if (this.initialY === null) return;
 
+      let currentX = e.touches[0].clientX,
+        currentY = e.touches[0].clientY,
+        diffX = this.initialX - currentX,
+        diffY = this.initialY - currentY;
+
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+          (diffX > 0) ? this.goForward() : this.goBack();
+        }
+
+      this.initialX = null;
+      this.initialY = null;
+
+      e.preventDefault();
+    }
 
   }
 
@@ -95,6 +124,10 @@ export default {
         svg {
             cursor: pointer;
             fill: $blue;
+        }
+
+        .js-left{
+          margin-right: 10px;
         }
     }
 

@@ -87,6 +87,10 @@ export default {
         vertical-align: top;
         max-width: 200px;
         transition: all 0.3s ease;
+
+        @include tablet {
+            max-width: 99px;
+        }
     }
 
     &__image {
@@ -94,7 +98,7 @@ export default {
         height: auto;
 
         @include laptopHeight {
-            width: 350px;
+            //width: 350px;
         }
     }
 
@@ -118,6 +122,11 @@ export default {
                 top: 5%;
                 left: 0;
                 transform: rotate(-25deg);
+
+                @include mobile {
+                    top: 10%;
+                    left: 10%;
+                }
             }
 
         }
@@ -129,9 +138,19 @@ export default {
             }
 
             p {
-                top: 36%;
-                left: -28%;
+                top: 52%;
+                left: -6%;
                 transform: rotate(-25deg);
+
+                @include tablet {
+                    top: 51%;
+                    left: 13%;
+                }
+
+                @include mobile {
+                    top: 46%;
+                    left: 6%;
+                }
             }
 
         }
@@ -146,6 +165,10 @@ export default {
                 top: 22%;
                 left: 74%;
                 transform: rotate(25deg);
+
+                @include mobile{
+                  max-width: 75px;
+                }
             }
 
         }
@@ -157,9 +180,21 @@ export default {
             }
 
             p {
-                top: 20%;
-                left: -26%;
+                top: 53%;
+                left: 0;
                 transform: rotate(-25deg);
+                max-width: 155px;
+
+                @include tablet{
+                  top: 50%; 
+                  left: 10%;
+                  max-width: 99px;
+                }
+
+                @include mobile{
+                  top: 50%;
+                  left: 10%;
+                }
             }
 
         }
@@ -171,8 +206,8 @@ export default {
             }
 
             p {
-                top: 65%;
-                left: 70%;
+                top: 70%;
+                left: 65%;
                 transform: rotate(25deg);
             }
 
@@ -185,9 +220,16 @@ export default {
             }
 
             p {
-                top: 43%;
+                top: 50%;
                 left: 72%;
                 transform: rotate(25deg);
+                max-width: 150px;
+
+                @include mobile{
+                  top: 60%;
+                  left: 64%;
+                  max-width: 99px;
+                }
             }
 
         }
@@ -199,7 +241,7 @@ export default {
             }
 
             p {
-                top: 5%;
+                top: 9%;
                 left: 60%;
                 transform: rotate(25deg);
             }

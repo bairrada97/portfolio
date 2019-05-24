@@ -58,6 +58,10 @@ export default {
         @include tablet{
           justify-content: center;
         }
+
+        @include mobile{
+          grid-template-columns: 1fr;
+        }
     }
 
 }

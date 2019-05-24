@@ -35,7 +35,6 @@ export default new Router({
     },
     {
       path: '/project/:name/:id',
-
       name: 'projectDetail',
       component: ProjectDetail,
       props: true,

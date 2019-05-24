@@ -125,12 +125,12 @@ header {
             &:after {
                 content: '';
                 position: absolute;
-                bottom: -15px;
+                bottom: 0;
                 left: 50%;
                 background-color: $blue;
                 transform: translateX(-50%);
-                width: calc(100% + 30px);
-                height: 50px;
+                width: 100%;
+                height: 100%;
                 z-index: -1;
             }
 
@@ -326,6 +326,7 @@ header {
             animation: mobileText  0.5s 1s ease;
             animation-fill-mode: forwards;
             display: inline-block;
+            padding: 0;
 
             &:after{
               content: none;

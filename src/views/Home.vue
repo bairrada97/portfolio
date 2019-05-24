@@ -88,6 +88,8 @@ export default {
             height: 50px;
             margin-top: $s-9;
             margin-right: $s-6;
+            padding: 0;
+
 
 
             &:after{
