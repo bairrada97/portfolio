@@ -40,7 +40,10 @@ export default {
   created() {
     const projectId = ~~this.$route.params.id;
     this.project = this.$store.getters.getProject(projectId);
+   document.querySelector('#app').scrollTop = 0;
   },
+  
+
 };
 </script>
 
@@ -89,11 +92,11 @@ export default {
         font-size: $font-size3;
     }
 
-    &__subTitle{
-      margin-bottom: $s-5;
-      font-size: $font-size5;
-      color: $blue;
-      width: 100%;
+    &__subTitle {
+        margin-bottom: $s-5;
+        font-size: $font-size5;
+        color: $blue;
+        width: 100%;
     }
 
     &__labelContainer {

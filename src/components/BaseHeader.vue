@@ -87,6 +87,10 @@ header {
         margin-right: auto;
         letter-spacing: 3.2px;
 
+        @include mobile{
+          padding-left: 0;
+        }
+
 
         &:after{
           content: none;
@@ -227,7 +231,7 @@ header {
         display: flex;
         align-self: flex-start;
         padding-left: 5%;
-        margin-top: $s-6;
+        margin-top: $s-5;
         left: 0;
       }
 

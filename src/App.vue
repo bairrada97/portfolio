@@ -27,24 +27,32 @@ import BtnChangePerspective from '@/components/BtnChangePerspective.vue';
 import router from './router';
 import store from './store';
 
-router.beforeEach((to, from, next) => { 
+router.beforeEach((to, from, next) => {
   store.commit('updateChangePerspective', false);
   store.commit('updateTransition', true);
   setTimeout(function() {
     next();
   }, 1000);
 
+
   to.name == "home" ? store.commit('isIntroVisible', true) : store.commit('isIntroVisible', false);
 
 });
 router.afterEach((to, from) => {
   document.querySelector('#app').style.overflow = 'auto';
+
   store.commit('isMobile', false);
   setTimeout(function() {
     store.commit('updateTransition', false);
+    window.scrollTo(0, 0);
   }, 800);
 
+
+
 });
+
+
+
 
 export default {
   name: 'app',
@@ -62,8 +70,10 @@ export default {
   },
   mounted() {
     let height = Math.min(document.documentElement.clientHeight, window.screen.height, window.innerHeight);
+
     document.querySelector('#app').style.height = height + 'px';
   },
+
   methods: {
     updateChangePerspective() {
       this.$store.commit('updateChangePerspective', !this.changePerspective);
@@ -74,6 +84,7 @@ export default {
 
     this.$store.commit('updateTransition', false);
   },
+  
 
   computed: {
     makeModalVisible() {
