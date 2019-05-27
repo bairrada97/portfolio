@@ -98,7 +98,7 @@ export default {
         height: auto;
 
         @include laptopHeight {
-            //width: 350px;
+          overflow-y: auto;
         }
     }
 
@@ -186,7 +186,7 @@ export default {
                 max-width: 155px;
 
                 @include tablet{
-                  top: 50%; 
+                  top: 50%;
                   left: 10%;
                   max-width: 99px;
                 }
