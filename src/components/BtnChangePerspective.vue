@@ -73,7 +73,7 @@ export default {
 @import '@/styles/_variables.scss';
 .btnChangePerspective {
     position: absolute;
-    bottom: 30px;
+    bottom: 5%;
     right: 5%;
     z-index: 5;
 

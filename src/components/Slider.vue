@@ -1,9 +1,9 @@
 <!-- eslint-disable -->
 <template>
-<div class="slider">
-  <transition-group name="slide" mode="in-out">
-    <figure class="img-slider "  v-for="number in [counter]" v-bind:key="number">
-      <img :src="image[Math.abs(counter) % image.length].image" :alt="image[counter].description" :key="counter">
+<div class="slider" @load="setHeight">
+  <transition-group name="slide" mode="in-out" class="slider__container">
+    <figure class="slider__figure "  v-for="number in [counter]" :key="number">
+      <img  :src="image[Math.abs(counter) % image.length].image" :alt="image[counter].description" :key="counter">
     </figure>
 
   </transition-group>
@@ -26,7 +26,8 @@ export default {
     return {
       counter: this.$store.getters.getImageSlider,
       initialX: null,
-      initialY: null
+      initialY: null,
+      imageNaturalHeight: 0
     };
   },
   created() {
@@ -34,9 +35,17 @@ export default {
 
   },
   mounted() {
-    var container = document.querySelector('img');
-    container.addEventListener("touchstart", this.startTouch, false);
-    container.addEventListener("touchmove", this.moveTouch, false);
+    const image = document.querySelector('img'),
+    sliderContainer = document.querySelector('.slider');
+
+    image.addEventListener("touchstart", this.startTouch, false);
+    image.addEventListener("touchmove", this.moveTouch, false);
+    this.$nextTick(() => {
+      this.setHeight();
+    })
+
+
+
   },
   destroyed() {
     window.removeEventListener('keydown', this.navigate);
@@ -45,6 +54,7 @@ export default {
   updated() {
     let arrowLeft = document.querySelector('.js-left'),
       arrowRight = document.querySelector('.js-right');
+
     if (this.counter == 0) {
       arrowLeft.style.opacity = "0.3";
     } else if (this.counter == this.image.length - 1) {
@@ -65,6 +75,17 @@ export default {
       if (e.key === 'ArrowLeft') this.goBack();
       if (e.key === 'ArrowRight') this.goForward();
     },
+    setHeight(){
+      const image = document.querySelector('img'),
+      sliderContainer = document.querySelector('.slider');
+      var poll = setInterval(function () {
+
+        clearInterval(poll);
+        document.querySelector('.slider').style.height  = document.querySelector('img').offsetHeight + "px";
+
+}, 100);
+
+},
     startTouch(e) {
       this.initialX = e.touches[0].clientX;
       this.initialY = e.touches[0].clientY;
@@ -100,33 +121,39 @@ export default {
     padding-bottom: $s-8;
     flex: 1 1 55%;
     transition: all 1s ease;
+    overflow: hidden;
+    position: relative;
 
     @include laptop {
         display: block;
         width: 100%;
-
     }
 
-    .img-slider {
-        overflow: hidden;
-        position: relative;
-        height: 100%;
-        width: 100%;
+
+
+    &__container{
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__figure {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
 
     }
 
     img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+
         width: 100%;
         max-width: 702px;
         padding-bottom: $s-6;
         margin-left: auto;
         user-select: none;
         height: 100%;
+        border: 0;
 
         @include laptop {
             max-width: none;
@@ -138,6 +165,7 @@ export default {
         justify-content: flex-end;
         align-items: center;
         transition: all 1s ease;
+        transform: translateY(50%);
 
         svg {
             cursor: pointer;

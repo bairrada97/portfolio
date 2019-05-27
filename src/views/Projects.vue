@@ -46,7 +46,7 @@ export default {
 @import '@/styles/_variables.scss';
 
 .projects {
-
+  height: 100vh;
 
     &__container {
         display: grid;
