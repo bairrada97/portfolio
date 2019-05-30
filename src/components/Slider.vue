@@ -1,9 +1,9 @@
 <!-- eslint-disable -->
 <template>
 <div class="slider" @load="setHeight">
-  <transition-group name="slide" mode="in-out" class="slider__container">
-    <figure class="slider__figure "  v-for="number in [counter]" :key="number">
-      <img  :src="image[Math.abs(counter) % image.length].image" :alt="image[counter].description" :key="counter">
+  <transition-group :name="direction" mode="in-out" class="slider__container">
+    <figure class="slider__figure" v-for="number in [counter]" :key="number">
+      <img id="img" :src="image[Math.abs(counter) % image.length].image" :alt="image[counter].description" :key="counter">
     </figure>
 
   </transition-group>
@@ -32,20 +32,28 @@ export default {
   },
   created() {
     window.addEventListener('keydown', this.navigate);
-
   },
   mounted() {
     const image = document.querySelector('img'),
-    sliderContainer = document.querySelector('.slider');
+      sliderContainer = document.querySelector('.slider');
 
-    image.addEventListener("touchstart", this.startTouch, false);
-    image.addEventListener("touchmove", this.moveTouch, false);
     this.$nextTick(() => {
       this.setHeight();
     })
 
 
+    document.querySelector('body').addEventListener("touchstart", (e) =>{
+      if(e.target && e.target.id== 'img'){
+        this.startTouch(e);
+     }
+    });
 
+    document.querySelector('body').addEventListener("touchmove", (e) => {
+      if(e.target && e.target.id== 'img'){
+        this.moveTouch(e);
+     }
+
+    });
   },
   destroyed() {
     window.removeEventListener('keydown', this.navigate);
@@ -63,29 +71,46 @@ export default {
       arrowLeft.style.opacity = "1";
       arrowRight.style.opacity = "1";
     }
+
+    const image = document.querySelector('img');
+    document.querySelector('body').addEventListener("touchstart", function(e){
+      if(e.target && e.target.id== 'img'){
+        this.startTouch();
+     }
+    });
+
+    document.querySelector('body').addEventListener("touchmove", function(e){
+      if(e.target && e.target.id== 'img'){
+        this.moveTouch();
+     }
+
+    });
   },
   methods: {
     goForward() {
       if (this.counter < this.image.length - 1) this.$store.commit('getProjectImage', this.counter++);
+      this.direction = "next"
+
     },
     goBack() {
       if (this.counter > 0) this.$store.commit('getProjectImage', this.counter--);
+      this.direction = "prev"
     },
     navigate(e) {
       if (e.key === 'ArrowLeft') this.goBack();
       if (e.key === 'ArrowRight') this.goForward();
     },
-    setHeight(){
+    setHeight() {
       const image = document.querySelector('img'),
-      sliderContainer = document.querySelector('.slider');
-      var poll = setInterval(function () {
+        sliderContainer = document.querySelector('.slider');
+      var poll = setInterval(function() {
 
         clearInterval(poll);
-        document.querySelector('.slider').style.height  = document.querySelector('img').offsetHeight + "px";
+        document.querySelector('.slider').style.height = document.querySelector('img').offsetHeight + "px";
 
-}, 100);
+      }, 100);
 
-},
+    },
     startTouch(e) {
       this.initialX = e.touches[0].clientX;
       this.initialY = e.touches[0].clientY;
@@ -123,25 +148,24 @@ export default {
     transition: all 1s ease;
     overflow: hidden;
     position: relative;
+    text-align: right;
 
     @include laptop {
         display: block;
         width: 100%;
     }
 
-
-
-    &__container{
-      display: block;
-      width: 100%;
-      height: 100%;
+    &__container {
+        display: block;
+        width: 100%;
+        height: 100%;
     }
 
     &__figure {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
 
     }
 
@@ -173,18 +197,29 @@ export default {
         }
 
         .js-left {
-            margin-right: 10px;
+            margin-right: $s-5;
         }
     }
 
-    .slide-enter-active,
-    .slide-leave-active {
-        transition: 1s;
+    .prev-enter-active,
+    .prev-leave-active {
+        transition: 0.5s;
     }
-    .slide-enter {
+    .prev-enter {
+        transform: translate(-100%, 0);
+    }
+    .prev-leave-to {
         transform: translate(100%, 0);
     }
-    .slide-leave-to {
+
+    .next-enter-active,
+    .next-leave-active {
+        transition: 0.5s;
+    }
+    .next-enter {
+        transform: translate(100%, 0);
+    }
+    .next-leave-to {
         transform: translate(-100%, 0);
     }
 

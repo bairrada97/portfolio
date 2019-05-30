@@ -3,11 +3,12 @@
 
 @font-face {
     font-family: 'five_boroughs_handwritingRg';
-    src: url('/assets/fonts/fiveboroughshandwriting-webfont.woff2') format('woff2'),
-         url('/assets/fonts/fiveboroughshandwriting-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-    font-display: auto;
+    font-display: swap;
+    src: url('/assets/fonts/fiveboroughshandwriting-webfont.woff2') format('woff2'),
+         url('/assets/fonts/fiveboroughshandwriting-webfont.woff') format('woff');
+
 
 }
 
@@ -16,11 +17,12 @@
 
 @font-face {
     font-family: 'louis_george_cafebold';
-    src: url('/assets/fonts/louis_george_cafe_bold-webfont.woff2') format('woff2'),
-         url('/assets/fonts/louis_george_cafe_bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-    font-display: auto;
+    font-display: swap;
+    src: url('/assets/fonts/louis_george_cafe_bold-webfont.woff2') format('woff2'),
+         url('/assets/fonts/louis_george_cafe_bold-webfont.woff') format('woff');
+
 
 }
 
@@ -29,10 +31,11 @@
 
 @font-face {
     font-family: 'louis_george_cafregular';
-    src: url('/assets/fonts/louis_george_cafe-webfont.woff2') format('woff2'),
-         url('/assets/fonts/louis_george_cafe-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-    font-display: auto;
+    font-display: swap;
+    src: url('/assets/fonts/louis_george_cafe-webfont.woff2') format('woff2'),
+         url('/assets/fonts/louis_george_cafe-webfont.woff') format('woff');
+
 
 }

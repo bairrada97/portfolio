@@ -2,7 +2,7 @@
 <div class="intro">
   <div class="intro__container">
     <transition name="fade">
-      <div class="intro__titleContainer" v-if="rangeSliderValue < maxValue/6">
+      <div class="intro__titleContainer" v-if="rangeSliderValue < 1">
         <h1 class="base__title" data-id="1">{{ msg }}</h1>
         <span></span>
       </div>
@@ -100,7 +100,7 @@ export default {
        @include typography(14, 48, $minVw, $maxVW);
 
             opacity: 0;
-            animation: text 1.5s 1s ease;
+            animation: text 1.5s 1.1s ease;
             animation-fill-mode: forwards;
         }
 

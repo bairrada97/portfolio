@@ -76,19 +76,15 @@ header {
       animation-fill-mode: forwards;
 
 
-      @include tablet{
-        height: 70px;
-      }
-
-
     .logo {
         font-family: $louisGeorgeBold;
         font-size: $font-size5;
         margin-right: auto;
         letter-spacing: 3.2px;
 
-        @include mobile{
+        @include tablet{
           padding-left: 0;
+          margin-top: $s-5;
         }
 
 

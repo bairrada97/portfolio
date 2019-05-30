@@ -1,6 +1,6 @@
 <!-- eslint-disable -->
 <template>
-<article class="project" :style="{ backgroundImage: `url(${project.image})` }">
+<article @mouseover="getMouseValuess" @mouseleave="resetMouseValuess"  class="project" :style="{ backgroundImage: `url(${project.image})` }">
   <!-- v-for dos projetos-->
   <router-link class="project__linkContainer" :to="{ name: 'projectDetail', params: {name: project.name.replace(/\s+/g, ''), id: project.id},  }">
     <div class="project__container ">
@@ -34,13 +34,55 @@
 </template>
 
 <script>
+/* eslint-disable */
+// eslint-disable
 export default {
   name: 'project',
   props: ['project'],
+  methods: {
+    getMouseValuess(event) {
+
+      if (this.changePerspective) {
+        const root = document.documentElement;
+        const xSensitivity = 20;
+        const ySensitivity = 20;
+        const mouseX = event.pageX - event.target.getBoundingClientRect().left;
+        const mouseY = event.pageY - event.target.getBoundingClientRect().top;
+        const width = event.currentTarget.offsetWidth;
+        let xAngle = (0.5 - (mouseY / width)) * xSensitivity;
+        let yAngle = -(0.5 - (mouseX / width)) * ySensitivity;
+
+        event.currentTarget.style.transform = `perspective(500px) rotateX(${xAngle}deg) rotateY(${yAngle}deg) rotateZ(0) `;
+        event.currentTarget.querySelector('.project__container').style.transform = `perspective(500px) rotateX(${xAngle}deg) rotateY(${yAngle}deg) rotateZ(0) translateZ(0)`;
+      } else {
+        event.currentTarget.style.transform = `perspective(0px) rotateX(0deg) rotateY(0deg) rotateZ(0) translateZ(0)`;
+
+      }
+    },
+    resetMouseValuess() {
+      const root = document.documentElement;
+      const xAngle = 0;
+      const yAngle = 0;
+
+      if (this.changePerspective) {
+        event.currentTarget.style.transform = `transform: perspective(1000px) rotateX(${xAngle}deg) rotateY(35deg) rotateZ(0) translateZ(0)`;
+      }else {
+          event.currentTarget.style.transform = `perspective(0px) rotateX(0deg) rotateY(0deg) rotateZ(0) translateZ(0)`;
+      }
+
+    },
+  },
+  computed: {
+    changePerspective() {
+      return this.$store.getters.changePerspective;
+    },
+  },
+
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style  lang="scss">
 @import '@/styles/_variables.scss';
 
@@ -59,6 +101,14 @@ export default {
     transition: all 0.2s ease;
     background-size: cover;
     background-position: center;
+    transition: all 0.3s ease;
+
+
+    :root {
+        --rotateProjectX: 0;
+        --rotateProjectY: 0;
+        --rotateProjectZ: 0;
+    }
 
     &__linkContainer {
         width: 100%;
@@ -205,7 +255,7 @@ export default {
         font-size: $font-size6;
         color: $white;
         letter-spacing: 3.2px;
-        padding: $s-9 $s-10 $s-9;
+        padding: $s-9 $s-10;
         z-index: 1;
         line-height: 1.4;
     }

@@ -90,11 +90,14 @@
             }
 
             &:before {
-                transform: translate3d(10px, 0, -60px);
+                
             }
 
             &:after {
-                background: rgba($darkBlack, 0.8);
+              background: linear-gradient(0deg, $darkBlack 20%, transparent 80%);
+              background-size: 1px 800px;
+              background-position: 0 -326px;
+              opacity: 1;
             }
 
             &__icons {

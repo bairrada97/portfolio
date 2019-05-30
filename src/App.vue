@@ -1,29 +1,30 @@
     <template>
-    <div id="app">
+    <main id="app">
       <transition name="page" mode="in-out">
         <TransitionRouter v-if="transition" />
       </transition>
       <transition name="intro" mode="in-out">
-          <BaseHeader  v-if="(isIntroVisible && rangeSliderValue >= maxValue - 4)
+          <BaseHeader  v-if="(isIntroVisible && rangeSliderValue > maxValue - 5)
                       || !isIntroVisible "/>
       </transition>
       <div class="wrapper">
-        <BtnChangePerspective @click.native="updateChangePerspective" :text="text"/>
+
         <router-view :class="{ 'perspective' : changePerspective }" />
       </div>
       <transition name="fade">
         <PhotoModal :selectedPhoto="makeModalVisible" v-if="makeModalVisible" />
       </transition>
-    </div>
+    </main>
     </template>
 
 
 <script>
 /* eslint-disable */
+/*eslint no-shadow: [2, { "hoist": "all" }]*/
 import BaseHeader from '@/components/BaseHeader.vue';
 import PhotoModal from '@/components/PhotoModal.vue';
 import TransitionRouter from '@/components/TransitionRouter.vue';
-import BtnChangePerspective from '@/components/BtnChangePerspective.vue';
+
 import router from './router';
 import store from './store';
 
@@ -59,8 +60,8 @@ export default {
   components: {
     BaseHeader,
     PhotoModal,
-    TransitionRouter,
-    BtnChangePerspective,
+    TransitionRouter
+
   },
   data() {
     return {
@@ -75,16 +76,13 @@ export default {
   },
 
   methods: {
-    updateChangePerspective() {
-      this.$store.commit('updateChangePerspective', !this.changePerspective);
 
-    },
   },
   created() {
 
     this.$store.commit('updateTransition', false);
   },
-  
+
 
   computed: {
     makeModalVisible() {

@@ -13,16 +13,16 @@ export default {
     return {
       counter: 0,
       isScrolling: null,
-      scrollingText: ""
+      scrollingText: ""    
     };
   },
   created() {
     var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
-    this.$store.commit('updateRangeSliderValue', this.counter);
+    this.$store.commit('updateRangeSliderValue', this.counter++);
 
-    if (this.counter == 0) this.scrollingText = "Scroll To Build Website";
+    if (this.getRangeValue == 0) this.scrollingText = "Scroll To Build Website";
     if (touchDevice) {
-      if (this.counter == 0) this.scrollingText = "Tap To Build Website";
+      if (this.getRangeValue == 0) this.scrollingText = "Tap To Build Website";
     }
   },
   mounted() {
@@ -31,7 +31,7 @@ export default {
     if (touchDevice) {
       scrollingText: "Tap to Build Website";
       document.querySelector('#app').style.cursor = 'pointer';
-      document.querySelector('#app').style.userSelect="none";
+      document.querySelector('#app').style.userSelect = "none";
       window.addEventListener('click', this.mouseScroll);
     }
 
@@ -53,18 +53,20 @@ export default {
       var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
       this.$store.commit('updateRangeSliderValue', this.counter++);
 
-      if (this.counter == 1) this.scrollingText = "Keep Scrolling"
-      if (this.counter == 2) this.scrollingText = "Keep Scrolling"
-      if (this.counter == 3) this.scrollingText = "You are almost there"
-      if (this.counter == 4) this.scrollingText = "Keep Scrolling"
-      if (this.counter == 5) this.scrollingText = "Just one more time"
+      var getRangeValue = this.$store.getters.getRangeSliderValue ;
+
+      if (this.getRangeValue == 1) this.scrollingText = "Keep Scrolling"
+      if (this.getRangeValue == 2) this.scrollingText = "Keep Scrolling"
+      if (this.getRangeValue == 3) this.scrollingText = "You are almost there"
+      if (this.getRangeValue == 4) this.scrollingText = "Keep Scrolling"
+      if (this.getRangeValue == 5) this.scrollingText = "Just one more time"
       if (touchDevice) {
 
-        if (this.counter == 1) this.scrollingText = "Keep tapping"
-        if (this.counter == 2) this.scrollingText = "Keep tapping"
-        if (this.counter == 3) this.scrollingText = "You almost there"
-        if (this.counter == 4) this.scrollingText = "Keep tapping"
-        if (this.counter == 5) this.scrollingText = "Just one more time"
+        if (this.getRangeValue == 1) this.scrollingText = "Keep tapping"
+        if (this.getRangeValue == 2) this.scrollingText = "Keep tapping"
+        if (this.getRangeValue == 3) this.scrollingText = "You almost there"
+        if (this.getRangeValue == 4) this.scrollingText = "Keep tapping"
+        if (this.getRangeValue == 5) this.scrollingText = "Just one more time"
       }
     },
     throttle(event, func, limit) {
@@ -75,6 +77,11 @@ export default {
       }
     }
   },
+  computed: {
+    getRangeValue() {
+      return this.$store.getters.getRangeSliderValue
+    }
+  }
 };
 </script>
 
