@@ -9,6 +9,34 @@ export default new Vuex.Store({
     projects: [
       {
         id: 0,
+        name: "Slider Puzzle",
+        labels: ["Html", "Sass", "Vue.js", "PWA"],
+        image: "/../assets/images/sliderpuzzle-07.png",
+        imagesSlider: [
+          {
+            image: "/../assets/images/sliderpuzzle-04.png",
+            description: "Belem tower at night"
+          },
+          {
+            image: "/../assets/images/sliderpuzzle-05.png",
+            description: "Monument to the Discoveries"
+          },
+          {
+            image: "/../assets/images/sliderpuzzle-06.png",
+            description: "Porto at night"
+          },
+          {
+            image: "/../assets/images/sliderpuzzle-01.png",
+            description: "temple of debod"
+          }
+        ],
+        description:
+          "Game where the goal is to complete an image. It's a 4x4 game and starts with all squares shuffled, then the user as to move the pieces until complete the image.",
+        liveSite: "https://sliderpuzzle.netlify.com/",
+        liveCode: "https://github.com/bairrada97/SliderPuzzle"
+      },
+      {
+        id: 1,
         name: "Chess Game",
         labels: ["Html", "Sass", "Javascript", "ES6 Classes"],
         image: "/../assets/images/chess-01.png",
@@ -32,7 +60,7 @@ export default new Vuex.Store({
         liveCode: "https://github.com/bairrada97/Chess-Game"
       },
       {
-        id: 1,
+        id: 2,
         name: "The Weather Forecast",
         labels: ["Html", "Sass", "Jquery", "PWA", "API"],
         image: "/../assets/images/weather-app-06.png",
@@ -65,7 +93,7 @@ export default new Vuex.Store({
         liveCode: "https://github.com/bairrada97/WeatherApp"
       },
       {
-        id: 2,
+        id: 3,
         name: "Dyslexia App",
         labels: ["Html", "Sass", "Jquery", "PWA"],
         image: "/../assets/images/dislexia-app-04.png",
