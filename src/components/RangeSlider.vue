@@ -13,7 +13,7 @@ export default {
     return {
       counter: 0,
       isScrolling: null,
-      scrollingText: ""    
+      scrollingText: ""
     };
   },
   created() {
@@ -21,27 +21,30 @@ export default {
     this.$store.commit('updateRangeSliderValue', this.counter++);
 
     if (this.getRangeValue == 0) this.scrollingText = "Scroll To Build Website";
-    if (touchDevice) {
-      if (this.getRangeValue == 0) this.scrollingText = "Tap To Build Website";
-    }
+    if (touchDevice && this.getRangeValue == 0) this.scrollingText = "Tap To Build Website";
   },
   mounted() {
+
     var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
-    window.addEventListener('wheel', this.mouseScroll);
+    document.body.addEventListener('wheel', this.mouseScroll);
     if (touchDevice) {
       scrollingText: "Tap to Build Website";
       document.querySelector('#app').style.cursor = 'pointer';
+      document.querySelector('body').style.cursor = 'pointer';
       document.querySelector('#app').style.userSelect = "none";
-      window.addEventListener('click', this.mouseScroll);
+      document.body.addEventListener('click', this.mouseScroll);
+
     }
 
   },
   beforeDestroy() {
     var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
-    window.removeEventListener('wheel', this.mouseScroll);
+    document.body.removeEventListener('wheel', this.mouseScroll);
     if (touchDevice) {
-      window.removeEventListener('click', this.mouseScroll)
+      document.body.removeEventListener('click', this.mouseScroll)
       document.querySelector('#app').style.cursor = 'auto';
+      document.querySelector('body').style.cursor = 'auto';
+
     };
 
   },
@@ -53,7 +56,7 @@ export default {
       var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
       this.$store.commit('updateRangeSliderValue', this.counter++);
 
-      var getRangeValue = this.$store.getters.getRangeSliderValue ;
+      var getRangeValue = this.$store.getters.getRangeSliderValue;
 
       if (this.getRangeValue == 1) this.scrollingText = "Keep Scrolling"
       if (this.getRangeValue == 2) this.scrollingText = "Keep Scrolling"

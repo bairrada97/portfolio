@@ -8,7 +8,9 @@
     </figure>
     <div class="about__imageContainer" v-for="description in about" :key="description.id">
       <p class="about__text">{{description.text}}</p>
-      <span @mouseover="showImage"></span>
+      <div class="about__ballContainer" @mouseover="showImage">
+        <span></span>
+      </div>
       <img :src="description.image" alt="">
     </div>
 
@@ -34,7 +36,7 @@ export default {
     showImage(e) {
       const image = document.querySelectorAll('.about__imageContainer img');
       const text = document.querySelectorAll('.about__imageContainer .about__text');
-      const span = document.querySelectorAll('.about__imageContainer span');
+      const span = document.querySelectorAll('.about__imageContainer .about__ballContainer');
 
       for (const element of image) {
         element.style.opacity = '0';
@@ -61,6 +63,7 @@ export default {
 
     flex-direction: column;
     overflow: hidden;
+    height: auto;
 
     .base__title {
         margin-bottom: $s-8;
@@ -98,7 +101,7 @@ export default {
         height: auto;
 
         @include laptopHeight {
-          overflow-y: auto;
+            overflow-y: auto;
         }
     }
 
@@ -113,9 +116,12 @@ export default {
         transition: all 0.3s ease;
 
         &:nth-of-type(1) {
-            span {
+
+            .about__ballContainer {
+
                 top: 20.5%;
                 left: 52%;
+
             }
 
             p {
@@ -132,9 +138,11 @@ export default {
         }
 
         &:nth-of-type(2) {
-            span {
+
+            .about__ballContainer {
                 top: 56%;
                 left: 31%;
+
             }
 
             p {
@@ -156,9 +164,11 @@ export default {
         }
 
         &:nth-of-type(3) {
-            span {
+
+            .about__ballContainer {
                 top: 33%;
                 left: 56%;
+
             }
 
             p {
@@ -166,17 +176,19 @@ export default {
                 left: 74%;
                 transform: rotate(25deg);
 
-                @include mobile{
-                  max-width: 75px;
+                @include mobile {
+                    max-width: 75px;
                 }
             }
 
         }
 
         &:nth-of-type(4) {
-            span {
+
+            .about__ballContainer {
                 top: 46%;
                 left: 30%;
+
             }
 
             p {
@@ -185,24 +197,25 @@ export default {
                 transform: rotate(-25deg);
                 max-width: 155px;
 
-                @include tablet{
-                  top: 50%;
-                  left: 10%;
-                  max-width: 99px;
+                @include tablet {
+                    top: 50%;
+                    left: 10%;
+                    max-width: 99px;
                 }
 
-                @include mobile{
-                  top: 50%;
-                  left: 10%;
+                @include mobile {
+                    top: 50%;
+                    left: 10%;
                 }
             }
-
         }
 
         &:nth-of-type(5) {
-            span {
+
+            .about__ballContainer {
                 top: 86%;
                 left: 53%;
+
             }
 
             p {
@@ -214,9 +227,11 @@ export default {
         }
 
         &:nth-of-type(6) {
-            span {
+
+            .about__ballContainer {
                 top: 57%;
                 left: 63%;
+
             }
 
             p {
@@ -225,26 +240,26 @@ export default {
                 transform: rotate(25deg);
                 max-width: 150px;
 
-                @include mobile{
-                  top: 60%;
-                  left: 64%;
-                  max-width: 99px;
+                @include mobile {
+                    top: 60%;
+                    left: 64%;
+                    max-width: 99px;
                 }
             }
 
         }
 
         &:nth-of-type(7) {
-            span {
+            .about__ballContainer {
                 top: 15%;
                 left: 48.5%;
             }
-
             p {
                 top: 9%;
                 left: 60%;
                 transform: rotate(25deg);
             }
+
         }
 
         img {
@@ -255,9 +270,11 @@ export default {
             transition: all 0.3s ease;
         }
 
-        span {
+        .about__ballContainer {
             position: absolute;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: $blue;
             width: 10px;
             height: 10px;
@@ -265,6 +282,9 @@ export default {
             z-index: 9;
             cursor: pointer;
 
+            span {
+                padding: 15px;
+            }
         }
 
     }

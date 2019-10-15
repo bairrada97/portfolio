@@ -27,16 +27,16 @@ export default {
     background-position: center;
     cursor: pointer;
 
-    &:before{
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          opacity: 0;
-          background-color:  $darkBlack;
-          transition: all 0.4s ease;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: $darkBlack;
+        transition: all 0.4s ease;
     }
 
     svg {
@@ -49,12 +49,23 @@ export default {
 
     &:hover {
 
-        &:before{
-          opacity: 0.8;
+        &:before {
+            opacity: 0.8;
         }
 
         svg {
             opacity: 1;
+        }
+    }
+
+    @include tablet {
+        &:before {
+            content: '';
+        }
+
+        svg {
+
+            display: none;
         }
     }
 

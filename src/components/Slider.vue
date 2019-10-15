@@ -27,7 +27,8 @@ export default {
       counter: this.$store.getters.getImageSlider,
       initialX: null,
       initialY: null,
-      imageNaturalHeight: 0
+      imageNaturalHeight: 0,
+      direction: ""
     };
   },
   created() {
@@ -89,12 +90,12 @@ export default {
   methods: {
     goForward() {
       if (this.counter < this.image.length - 1) this.$store.commit('getProjectImage', this.counter++);
-      this.direction = "next"
+      this.direction = "next";
 
     },
     goBack() {
       if (this.counter > 0) this.$store.commit('getProjectImage', this.counter--);
-      this.direction = "prev"
+      this.direction = "prev";
     },
     navigate(e) {
       if (e.key === 'ArrowLeft') this.goBack();
@@ -159,6 +160,10 @@ export default {
         display: block;
         width: 100%;
         height: 100%;
+
+        @include tablet{
+          height: 90%;
+        }
     }
 
     &__figure {
@@ -198,6 +203,10 @@ export default {
 
         .js-left {
             margin-right: $s-5;
+        }
+
+        @include tablet{
+          margin-bottom: $s-6;
         }
     }
 

@@ -8,7 +8,7 @@
       </div>
     </transition>
   </div>
-  <RangeSlider v-if="timeToScroll"/>
+  <RangeSlider v-if="timeToScroll" />
 </div>
 </template>
 
@@ -38,11 +38,11 @@ export default {
     },
 
   },
-  created(){
+  created() {
     document.querySelector('#app').style.overflow = 'hidden';
 
   },
-  beforeDestroy(){
+  beforeDestroy() {
     document.querySelector('#app').style.overflow = 'auto';
 
 
@@ -68,6 +68,7 @@ export default {
     width: 100%;
     height: 100vh;
     z-index: 2;
+    cursor: pointer;
 
     &__container {
         position: absolute;
@@ -76,8 +77,8 @@ export default {
         transform: translate(-50%, -50%);
         min-width: 75%;
 
-        @include mobile{
-          min-width: 100%;
+        @include mobile {
+            min-width: 100%;
         }
 
     }
@@ -88,16 +89,15 @@ export default {
     }
 
     .base__title {
-       @include typography(20, 48, $minVw, $maxVW);
+        @include typography(20, 48, $minVw, $maxVW);
         position: relative;
         letter-spacing: 5px;
         text-align: center;
-        white-space:nowrap;
+        white-space: nowrap;
         width: 100%;
 
-
         &[data-id="1"] {
-       @include typography(14, 48, $minVw, $maxVW);
+            @include typography(14, 48, $minVw, $maxVW);
 
             opacity: 0;
             animation: text 1.5s 1.1s ease;

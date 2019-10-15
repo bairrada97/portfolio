@@ -9,6 +9,38 @@ export default new Vuex.Store({
     projects: [
       {
         id: 0,
+        name: 'Slider Puzzle',
+        labels: ['Vue.js', 'Javascript', 'Sass'],
+        image: '/../assets/images/sliderpuzzle-03.png',
+        imagesSlider: [{
+            image: "/../assets/images/sliderpuzzle-01.png",
+            description: "temple of debod image shuffled"
+          },
+          {
+            image: "/../assets/images/sliderpuzzle-02.png",
+            description: "temple of debod image almost completed"
+          },
+          {
+            image: "/../assets/images/sliderpuzzle-06.png",
+            description: "porto image shuffled"
+          },
+          {
+            image: "/../assets/images/sliderpuzzle-04.png",
+            description: "Belem tower image shuffled"
+          },
+          {
+            image: "/../assets/images/sliderpuzzle-07.png",
+            description: "temple of debod image completed"
+          }
+
+
+        ],
+        description: "Slider Puzzle is a game where the goal is to complete an image. It's a 4x4 game and starts with all squares shuffled, then the user as to move the pieces until complete the image",
+        liveSite: 'https://sliderpuzzle.netlify.com',
+        liveCode: 'https://bairrada97.github.io/SliderPuzzle/',
+      },
+      {
+        id: 1,
         name: 'Chess Game',
         labels: ['Html', 'Sass', 'Javascript', 'ES6 Classes'],
         image: '/../assets/images/chess-01.png',
@@ -31,7 +63,7 @@ export default new Vuex.Store({
         liveCode: 'https://github.com/bairrada97/Chess-Game',
       },
       {
-        id: 1,
+        id: 2,
         name: 'The Weather Forecast',
         labels: ['Html', 'Sass', 'Jquery', 'PWA', "API"],
         image: '/../assets/images/weather-app-06.png',
@@ -61,7 +93,7 @@ export default new Vuex.Store({
         liveCode: 'https://github.com/bairrada97/WeatherApp',
       },
       {
-        id: 2,
+        id: 3,
         name: 'Dyslexia App',
         labels: ['Html', 'Sass', 'Jquery', 'PWA'],
         image: '/../assets/images/dislexia-app-04.png',
@@ -87,47 +119,67 @@ export default new Vuex.Store({
         liveSite: 'https://dyslexia-app.firebaseapp.com/',
         liveCode: 'https://github.com/bairrada97/DyslexiaApp',
       },
+
     ],
-    interests: [{
+    interests: [
+      {
         id: 0,
-        image: '/../assets/images/d-luis-bridge.webp',
+        image: '/../assets/images/d-luis-bridge.png',
         description: "D.Luis Bridge",
         isSelected: false,
       },
       {
         id: 1,
-        image: '/../assets/images/temple-of-debod.webp',
+        image: '/../assets/images/temple-of-debod.png',
         description: "Temple of Debod",
         isSelected: false,
       },
       {
         id: 2,
-        image: '/../assets/images/budapest-parlament.webp',
+        image: '/../assets/images/budapest-parlament.png',
         description: "Budapest Parlament",
         isSelected: false,
       },
       {
         id: 3,
-        image: '/../assets/images/leaf.webp',
+        image: '/../assets/images/leaf.png',
         description: "Leaf",
         isSelected: false,
       },
       {
         id: 4,
-        image: '/../assets/images/aveiro.webp',
+        image: '/../assets/images/aveiro.png',
         description: "Aveiro",
         isSelected: false,
       },
       {
         id: 5,
-        image: '/../assets/images/porto-landscape.webp',
+        image: '/../assets/images/porto-landscape.png',
         description: "Porto Landscape",
         isSelected: false,
       },
       {
         id: 6,
-        image: '/../assets/images/andorra-landscape.webp',
+        image: '/../assets/images/belem-tower-day.png',
+        description: "Belem Tower at Day",
+        isSelected: false,
+      },
+      {
+        id: 7,
+        image: '/../assets/images/belem-tower-night.png',
+        description: "Belem Tower at Night",
+        isSelected: false,
+      },
+      {
+        id: 8,
+        image: '/../assets/images/andorra-landscape.png',
         description: "Andorra Landscape",
+        isSelected: false,
+      },
+      {
+        id: 9,
+        image: '/../assets/images/monument-of-discoveries.png',
+        description: "Perspective of Monument of Discoveries",
         isSelected: false,
       },
     ],
@@ -148,7 +200,7 @@ export default new Vuex.Store({
       instagram: {
         icon: '/../assets/images/Instagram.svg',
         name: "Instagram",
-        link: "https://www.instagram.com/_bairrada_/"
+        link: "https://www.instagram.com/joaobairrada/"
       },
       cv: {
         icon: '/../assets/images/iOSPaper.svg',
@@ -196,8 +248,8 @@ export default new Vuex.Store({
       }
 
     },
-    projectsToShow: 3,
-    interestsToShow: 3,
+    projectsToShow: 6,
+    interestsToShow: 6,
     transition: false,
     changePerspective: false,
     perspectiveText: '3D Mode',

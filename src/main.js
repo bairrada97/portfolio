@@ -7,19 +7,6 @@ import store from './store';
 import './registerServiceWorker';
 
 Vue.config.productionTip = false;
-Vue.directive('arrowUp', {
-
-  bind(el) {
-    const element = el;
-    const template = `<div class="arrow">
-      <div class="curve"></div>
-      <div class="point"></div>
-      <span class="tagName">${element.tagName}</span>
-    </div>`;
-    element.innerHTML += template;
-  },
-
-});
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

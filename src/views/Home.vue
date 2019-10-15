@@ -6,7 +6,7 @@
       </transition>
       <div class="home__titleContainer">
         <transition name="intro" mode="in-out">
-          <h1 class="base__title" v-if="rangeSliderValue >= maxValue - 3" v-arrowUp>{{name}}</h1>
+          <h1 class="base__title" v-if="rangeSliderValue >= maxValue - 3">{{name}}</h1>
         </transition>
         <transition name="intro" mode="in-out">
           <h2 class="home__subTitle" v-if="rangeSliderValue >= maxValue - 2">{{jobTitle}}</h2>

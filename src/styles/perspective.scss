@@ -75,7 +75,7 @@
 
         .project {
             box-shadow: 11px 8px 20px 0 rgba(0,0,0,0.24);
-            transform-origin: left;
+        
             transform-style: preserve-3d;
             transform: perspective(1000px) rotateX(0) rotateY(35deg) rotateZ(0) translateZ(0);
 
@@ -90,7 +90,7 @@
             }
 
             &:before {
-                
+
             }
 
             &:after {

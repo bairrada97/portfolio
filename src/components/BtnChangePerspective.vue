@@ -1,6 +1,6 @@
 <!-- eslint-disable -->
 <template>
-<div @mousemove="getMouseValues" @mouseleave="resetMouseValues" class="btnChangePerspective" v-if="onlyProjectPage">
+<div @mousemove="getMouseValues" @mouseleave="resetMouseValues" class="btnChangePerspective" :class="{hasPerspective: changePerspective}" v-if="onlyProjectPage">
   <button type="button" name="button">
     <span @mousemove="getMouseValues">{{perspectiveText}}</span>
   </button>
@@ -28,6 +28,9 @@ export default {
     perspectiveText() {
       return this.$store.state.perspectiveText
     },
+    changePerspective(){
+      return this.$store.getters.changePerspective;
+    },
     rangeSliderValue() {
       return this.$store.getters.getRangeSliderValue;
     },
@@ -46,6 +49,7 @@ export default {
     top: 10%;
     right: 6%;
     z-index: 5;
+    cursor: pointer;
 
     @include tablet {
         display: none;
@@ -54,6 +58,17 @@ export default {
     :root {
         --rotateX: 0;
         --rotateY: 0;
+    }
+
+    &.hasPerspective{
+      &:hover{
+        box-shadow: none;
+
+        span {
+            font-size: $font-size3;
+            text-shadow: none;
+        }
+      }
     }
 
     button {
@@ -67,7 +82,7 @@ export default {
         transform: perspective(500px) rotateX(var(--rotateX)) rotateY(var(--rotateY)) scale3d(1, 1, 1);
 
         span {
-            font-size: 16px;
+            font-size: $font-size3;
             transition: all 0.3s ease;
         }
 
@@ -76,7 +91,7 @@ export default {
             box-shadow: 0 0 20px 5px rgba($blue, 0.2);
 
             span {
-                font-size: 18px;
+                font-size: $font-size4;
                 text-shadow: 3px 8px 7px rgba($darkBlack, 0.4);
             }
         }

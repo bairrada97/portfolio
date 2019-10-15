@@ -3,8 +3,8 @@
 <template>
 <section class="projects">
   <h1 class="base__title">Projects</h1>
-  <div class="projects__container">
-    <Project  v-for="(project,index) in projects.slice(0, projectsToShow)" :key="index" :project="project" />
+  <div class="projects__container" :class="{hasPerspective: changePerspective}">
+    <Project v-for="(project,index) in projects.slice(0, projectsToShow)" :key="index" :project="project" />
   </div>
   <div class="base__seeMore">
     <a href="#" @click="showMoreProjects(), updateProjectsToShow()" v-show="projects.length > 3 && this.projectsToShow <= this.projects.length">See More</a>
@@ -47,22 +47,27 @@ export default {
     },
     getMouseValues(event) {
       const root = document.documentElement;
-      const xSensitivity = 30;
-      const ySensitivity = 45;
-      const mouseX = event.pageX - event.target.getBoundingClientRect().left;
-      const mouseY = event.pageY - event.target.getBoundingClientRect().top;
+      const mouseX = event.pageX - event.currentTarget.getBoundingClientRect().left;
+      const mouseY = event.pageY - event.currentTarget.getBoundingClientRect().top;
       const width = event.currentTarget.offsetWidth;
-      let xAngle = (0.5 - (mouseY / width)) * xSensitivity;
-      let yAngle = -(0.5 - (mouseX / width)) * ySensitivity;
+      const height = event.currentTarget.offsetHeight;
+      const reverse = 1;
+      const max = 30;
+      const x = mouseX / width;
+      const y = mouseY / height;
+
+      let xAngle = (reverse * (max - x * max * 2)).toFixed(2);
+      let yAngle = (reverse * (y * max * 2 - max)).toFixed(2);
+
 
       if (!this.changePerspective) {
-        root.style.setProperty('--rotateX', `${xAngle}deg`);
-        root.style.setProperty('--rotateY', `${yAngle}deg`);
+        root.style.setProperty('--rotateX', `${yAngle}deg`);
+        root.style.setProperty('--rotateY', `${xAngle}deg`);
       } else {
         xAngle = 0;
         yAngle = 0;
-        root.style.setProperty('--rotateX', `${xAngle}deg`);
-        root.style.setProperty('--rotateY', `${yAngle}deg`);
+        root.style.setProperty('--rotateX', `${yAngle}deg`);
+        root.style.setProperty('--rotateY', `${xAngle}deg`);
       }
     },
     resetMouseValues() {
@@ -75,6 +80,7 @@ export default {
   },
   computed: {
     changePerspective() {
+      document.querySelectorAll('.projects__container').style = 'grid-row-gap: 40px';
       return this.$store.getters.changePerspective;
     },
   },
@@ -91,10 +97,10 @@ export default {
 
     &__container {
         display: grid;
-        //grid-template-columns: repeat(auto-fill, 330px);
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         grid-column-gap: 40px;
         grid-row-gap: 40px;
+
 
         @include tablet {
             justify-content: center;
@@ -102,6 +108,10 @@ export default {
 
         @include mobile {
             grid-template-columns: 1fr;
+        }
+
+        &.hasPerspective{
+            grid-row-gap: 80px;
         }
     }
 

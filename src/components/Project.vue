@@ -1,6 +1,6 @@
 <!-- eslint-disable -->
 <template>
-<article @mouseover="getMouseValuess" @mouseleave="resetMouseValuess"  class="project" :style="{ backgroundImage: `url(${project.image})` }">
+<article :class="{normalMode: !changePerspective}"  @mousemove="getMouseCardValues" @mouseleave="resetMouseCardValues"  class="project" :style="{ backgroundImage: `url(${project.image})` }">
   <!-- v-for dos projetos-->
   <router-link class="project__linkContainer" :to="{ name: 'projectDetail', params: {name: project.name.replace(/\s+/g, ''), id: project.id},  }">
     <div class="project__container ">
@@ -25,7 +25,7 @@
         <span class="project__label" :key="label" v-for="label in project.labels">{{ label }}</span>
       </div> -->
       <!-- v-for das labels-->
-      <h3 class="project__name">{{ project.name }}</h3>
+      <h3 class="project__name">{{ project.name }}<span>_</span></h3>
     </div>
   </router-link>
 
@@ -40,43 +40,57 @@ export default {
   name: 'project',
   props: ['project'],
   methods: {
-    getMouseValuess(event) {
-
+    getMouseCardValues(event) {
       if (this.changePerspective) {
-        const root = document.documentElement;
-        const xSensitivity = 20;
-        const ySensitivity = 20;
-        const mouseX = event.pageX - event.target.getBoundingClientRect().left;
-        const mouseY = event.pageY - event.target.getBoundingClientRect().top;
-        const width = event.currentTarget.offsetWidth;
-        let xAngle = (0.5 - (mouseY / width)) * xSensitivity;
-        let yAngle = -(0.5 - (mouseX / width)) * ySensitivity;
+          let x;
+          let y;
+          const root = document.documentElement;
+          const mouseX = event.clientX  - event.currentTarget.getBoundingClientRect().left;
+          const mouseY = event.clientY - event.currentTarget.getBoundingClientRect().top;
+          const width = event.currentTarget.offsetWidth;
+          const height = event.currentTarget.offsetHeight;
+          const reverse = 1;
+          const max = 30;
+          x = mouseX / width;
+          y = mouseY / height;
 
-        event.currentTarget.style.transform = `perspective(500px) rotateX(${xAngle}deg) rotateY(${yAngle}deg) rotateZ(0) `;
-        event.currentTarget.querySelector('.project__container').style.transform = `perspective(500px) rotateX(${xAngle}deg) rotateY(${yAngle}deg) rotateZ(0) translateZ(0)`;
-      } else {
-        event.currentTarget.style.transform = `perspective(0px) rotateX(0deg) rotateY(0deg) rotateZ(0) translateZ(0)`;
+          let xAngle = (reverse * (max - x * max * 2)).toFixed(2);
+          let yAngle = (reverse * (y * max * 2 - max)).toFixed(2);
+
+        event.currentTarget.style.transform = `perspective(1000px) rotateX(${yAngle}deg) rotateY(${xAngle}deg)`;
 
       }
     },
-    resetMouseValuess() {
+    resetMouseCardValues(event) {
       const root = document.documentElement;
       const xAngle = 0;
       const yAngle = 0;
 
       if (this.changePerspective) {
-        event.currentTarget.style.transform = `transform: perspective(1000px) rotateX(${xAngle}deg) rotateY(35deg) rotateZ(0) translateZ(0)`;
-      }else {
-          event.currentTarget.style.transform = `perspective(0px) rotateX(0deg) rotateY(0deg) rotateZ(0) translateZ(0)`;
+        event.currentTarget.style.transform = `perspective(1000px) rotateX(0deg) rotateY(35deg) rotateZ(0) translateZ(0)`;
       }
 
     },
   },
+
   computed: {
     changePerspective() {
       return this.$store.getters.changePerspective;
-    },
+    }
   },
+  updated(){
+    if(!this.changePerspective){
+      document.querySelectorAll('.project').forEach((element) =>{
+         element.style.transform = `perspective(0px) rotateX(0deg) rotateY(0deg) rotateZ(0) translateZ(0)`;
+      })
+    }else{
+      document.querySelectorAll('.project').forEach((element) =>{
+         element.style.transform = `perspective(1000px) rotateX(0deg) rotateY(35deg) rotateZ(0) translateZ(0)`;
+      })
+
+
+    }
+  }
 
 };
 </script>
@@ -103,6 +117,10 @@ export default {
     background-position: center;
     transition: all 0.3s ease;
 
+
+    &.normalMode{
+      transform: perspective(0px) rotateX(0deg) rotateY(0deg) rotateZ(0) translateZ(0);
+    }
 
     :root {
         --rotateProjectX: 0;
@@ -171,6 +189,13 @@ export default {
             opacity: 1;
         }
 
+        .project__name{
+          span{
+            animation: text 0.3s infinite
+          
+          }
+        }
+
     }
 
     &__container {
@@ -180,6 +205,8 @@ export default {
         display: flex;
         align-items: flex-end;
         justify-content: center;
+
+
     }
 
     &__icons {
@@ -258,6 +285,10 @@ export default {
         padding: $s-9 $s-10;
         z-index: 1;
         line-height: 1.4;
+
+        span{
+          opacity: 0;
+        }
     }
 
     .iconName {
