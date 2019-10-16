@@ -9,11 +9,11 @@ export default new Vuex.Store({
     projects: [
       {
         id: 0,
-<<<<<<< HEAD
-        name: 'Slider Puzzle',
-        labels: ['Vue.js', 'Javascript', 'Sass'],
-        image: '/../assets/images/sliderpuzzle-03.png',
-        imagesSlider: [{
+        name: "Slider Puzzle",
+        labels: ["Vue.js", "Javascript", "Sass"],
+        image: "/../assets/images/sliderpuzzle-03.png",
+        imagesSlider: [
+          {
             image: "/../assets/images/sliderpuzzle-01.png",
             description: "temple of debod image shuffled"
           },
@@ -33,45 +33,11 @@ export default new Vuex.Store({
             image: "/../assets/images/sliderpuzzle-07.png",
             description: "temple of debod image completed"
           }
-
-
-        ],
-        description: "Slider Puzzle is a game where the goal is to complete an image. It's a 4x4 game and starts with all squares shuffled, then the user as to move the pieces until complete the image",
-        liveSite: 'https://sliderpuzzle.netlify.com',
-        liveCode: 'https://bairrada97.github.io/SliderPuzzle/',
-      },
-      {
-        id: 1,
-        name: 'Chess Game',
-        labels: ['Html', 'Sass', 'Javascript', 'ES6 Classes'],
-        image: '/../assets/images/chess-01.png',
-        imagesSlider: [{
-=======
-        name: "Slider Puzzle",
-        labels: ["Html", "Sass", "Vue.js", "PWA"],
-        image: "/../assets/images/sliderpuzzle-07.png",
-        imagesSlider: [
-          {
-            image: "/../assets/images/sliderpuzzle-04.png",
-            description: "Belem tower at night"
-          },
-          {
-            image: "/../assets/images/sliderpuzzle-05.png",
-            description: "Monument to the Discoveries"
-          },
-          {
-            image: "/../assets/images/sliderpuzzle-06.png",
-            description: "Porto at night"
-          },
-          {
-            image: "/../assets/images/sliderpuzzle-01.png",
-            description: "temple of debod"
-          }
         ],
         description:
-          "Game where the goal is to complete an image. It's a 4x4 game and starts with all squares shuffled, then the user as to move the pieces until complete the image.",
-        liveSite: "https://sliderpuzzle.netlify.com/",
-        liveCode: "https://github.com/bairrada97/SliderPuzzle"
+          "Slider Puzzle is a game where the goal is to complete an image. It's a 4x4 game and starts with all squares shuffled, then the user as to move the pieces until complete the image",
+        liveSite: "https://sliderpuzzle.netlify.com",
+        liveCode: "https://bairrada97.github.io/SliderPuzzle/"
       },
       {
         id: 1,
@@ -80,7 +46,6 @@ export default new Vuex.Store({
         image: "/../assets/images/chess-01.png",
         imagesSlider: [
           {
->>>>>>> master
             image: "/../assets/images/chess-01.png",
             description: "init board chess"
           },
@@ -100,18 +65,11 @@ export default new Vuex.Store({
       },
       {
         id: 2,
-<<<<<<< HEAD
-        name: 'The Weather Forecast',
-        labels: ['Html', 'Sass', 'Jquery', 'PWA', "API"],
-        image: '/../assets/images/weather-app-06.png',
-        imagesSlider: [{
-=======
         name: "The Weather Forecast",
         labels: ["Html", "Sass", "Jquery", "PWA", "API"],
         image: "/../assets/images/weather-app-06.png",
         imagesSlider: [
           {
->>>>>>> master
             image: "/../assets/images/weather-app-01.png",
             description: "one screen on Daily tab"
           },
@@ -140,18 +98,11 @@ export default new Vuex.Store({
       },
       {
         id: 3,
-<<<<<<< HEAD
-        name: 'Dyslexia App',
-        labels: ['Html', 'Sass', 'Jquery', 'PWA'],
-        image: '/../assets/images/dislexia-app-04.png',
-        imagesSlider: [{
-=======
         name: "Dyslexia App",
         labels: ["Html", "Sass", "Jquery", "PWA"],
         image: "/../assets/images/dislexia-app-04.png",
         imagesSlider: [
           {
->>>>>>> master
             image: "/../assets/images/dislexia-app-01.png",
             description: "main screen"
           },
@@ -168,112 +119,73 @@ export default new Vuex.Store({
             description: "screen to choose how you feel"
           }
         ],
-<<<<<<< HEAD
-        description: "Dyslexia App, It's an app to complement a goose game, to help people who don't suffer from dyslexia understand how life can be hard for people who suffer. This app It's built in standard Front-End skills, also was my first project in which I created a Progressive web app.",
-        liveSite: 'https://dyslexia-app.firebaseapp.com/',
-        liveCode: 'https://github.com/bairrada97/DyslexiaApp',
-      },
-
-=======
         description:
           "Dyslexia App, It's an app to complement a goose game, to help people who don't suffer from dyslexia understand how life can be hard for people who suffer. This app It's built in standard Front-End skills, also was my first project in which I created a Progressive web app.",
         liveSite: "https://dyslexia-app.firebaseapp.com/",
         liveCode: "https://github.com/bairrada97/DyslexiaApp"
       }
->>>>>>> master
     ],
     interests: [
       {
         id: 0,
-<<<<<<< HEAD
-        image: '/../assets/images/d-luis-bridge.png',
-=======
-        image: "/../assets/images/d-luis-bridge.webp",
->>>>>>> master
+        image: "/../assets/images/d-luis-bridge.png",
         description: "D.Luis Bridge",
         isSelected: false
       },
       {
         id: 1,
-<<<<<<< HEAD
-        image: '/../assets/images/temple-of-debod.png',
-=======
-        image: "/../assets/images/temple-of-debod.webp",
->>>>>>> master
+        image: "/../assets/images/temple-of-debod.png",
         description: "Temple of Debod",
         isSelected: false
       },
       {
         id: 2,
-<<<<<<< HEAD
-        image: '/../assets/images/budapest-parlament.png',
-=======
-        image: "/../assets/images/budapest-parlament.webp",
->>>>>>> master
+        image: "/../assets/images/budapest-parlament.png",
         description: "Budapest Parlament",
         isSelected: false
       },
       {
         id: 3,
-<<<<<<< HEAD
-        image: '/../assets/images/leaf.png',
-=======
-        image: "/../assets/images/leaf.webp",
->>>>>>> master
+        image: "/../assets/images/leaf.png",
         description: "Leaf",
         isSelected: false
       },
       {
         id: 4,
-<<<<<<< HEAD
-        image: '/../assets/images/aveiro.png',
-=======
-        image: "/../assets/images/aveiro.webp",
->>>>>>> master
+        image: "/../assets/images/aveiro.png",
         description: "Aveiro",
         isSelected: false
       },
       {
         id: 5,
-<<<<<<< HEAD
-        image: '/../assets/images/porto-landscape.png',
-=======
-        image: "/../assets/images/porto-landscape.webp",
->>>>>>> master
+        image: "/../assets/images/porto-landscape.png",
         description: "Porto Landscape",
         isSelected: false
       },
       {
         id: 6,
-<<<<<<< HEAD
-        image: '/../assets/images/belem-tower-day.png',
+        image: "/../assets/images/belem-tower-day.png",
         description: "Belem Tower at Day",
-        isSelected: false,
+        isSelected: false
       },
       {
         id: 7,
-        image: '/../assets/images/belem-tower-night.png',
+        image: "/../assets/images/belem-tower-night.png",
         description: "Belem Tower at Night",
-        isSelected: false,
+        isSelected: false
       },
       {
         id: 8,
-        image: '/../assets/images/andorra-landscape.png',
+        image: "/../assets/images/andorra-landscape.png",
         description: "Andorra Landscape",
-        isSelected: false,
+        isSelected: false
       },
       {
         id: 9,
-        image: '/../assets/images/monument-of-discoveries.png',
+        image: "/../assets/images/monument-of-discoveries.png",
         description: "Perspective of Monument of Discoveries",
-        isSelected: false,
-      },
-=======
-        image: "/../assets/images/andorra-landscape.webp",
-        description: "Andorra Landscape",
         isSelected: false
       }
->>>>>>> master
     ],
     myImage: "/../assets/images/bairradaFace.png",
     illustrationImage: "/../assets/images/illustrationImage.png",
@@ -345,7 +257,7 @@ export default new Vuex.Store({
     perspectiveText: "3D Mode",
     isMobile: false,
     rangeSliderValue: null,
-    maxRangeSliderValue: 6,
+    maxRangeSliderValue: 2,
     isIntroVisible: false,
     projectImageSlider: 0
   },
