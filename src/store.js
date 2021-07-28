@@ -222,7 +222,7 @@ export default new Vuex.Store({
       mouse: {
         id: 1,
         image: "/../assets/images/rato.png",
-        text: "Currently working at Fullsix"
+        text: "Currently working at Studio Naam"
       },
       photo: {
         id: 2,
@@ -237,7 +237,7 @@ export default new Vuex.Store({
       roots: {
         id: 4,
         image: "/../assets/images/raizes.png",
-        text: "Lisbon, Portugal"
+        text: "Living In Utrecht, The Netherlands. From Lisbon, Portugal"
       },
       diploma: {
         id: 5,
